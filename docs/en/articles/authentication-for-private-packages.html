@@ -1,0 +1,414 @@
+<!DOCTYPE HTML>
+<html lang="pt-br" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Authentication for privately hosted packages and repositories - Composer - PT-BR</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">Book</li><li class="chapter-item expanded "><a href="../../en/00-intro.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../../en/01-basic-usage.html"><strong aria-hidden="true">2.</strong> Basic usage</a></li><li class="chapter-item expanded "><a href="../../en/02-libraries.html"><strong aria-hidden="true">3.</strong> Libraries</a></li><li class="chapter-item expanded "><a href="../../en/03-cli.html"><strong aria-hidden="true">4.</strong> CLI</a></li><li class="chapter-item expanded "><a href="../../en/04-schema.html"><strong aria-hidden="true">5.</strong> Schema</a></li><li class="chapter-item expanded "><a href="../../en/05-repositories.html"><strong aria-hidden="true">6.</strong> Repositories</a></li><li class="chapter-item expanded "><a href="../../en/06-config.html"><strong aria-hidden="true">7.</strong> Config</a></li><li class="chapter-item expanded "><a href="../../en/07-runtime.html"><strong aria-hidden="true">8.</strong> Runtime</a></li><li class="chapter-item expanded "><a href="../../en/08-community.html"><strong aria-hidden="true">9.</strong> Community</a></li><li class="chapter-item expanded affix "><li class="part-title">Articles</li><li class="chapter-item expanded "><a href="../../en/articles/aliases.html"><strong aria-hidden="true">10.</strong> Aliases</a></li><li class="chapter-item expanded "><a href="../../en/articles/authentication-for-private-packages.html" class="active"><strong aria-hidden="true">11.</strong> Authentication for privately hosted packages and repositories</a></li><li class="chapter-item expanded "><a href="../../en/articles/autoloader-optimization.html"><strong aria-hidden="true">12.</strong> Autoloader optimization</a></li><li class="chapter-item expanded "><a href="../../en/articles/composer-platform-dependencies.html"><strong aria-hidden="true">13.</strong> Composer platform dependencies</a></li><li class="chapter-item expanded "><a href="../../en/articles/custom-installers.html"><strong aria-hidden="true">14.</strong> Setting up and using custom installers</a></li><li class="chapter-item expanded "><a href="../../en/articles/handling-private-packages.html"><strong aria-hidden="true">15.</strong> Handling private packages</a></li><li class="chapter-item expanded "><a href="../../en/articles/plugins.html"><strong aria-hidden="true">16.</strong> Setting up and using plugins</a></li><li class="chapter-item expanded "><a href="../../en/articles/repository-priorities.html"><strong aria-hidden="true">17.</strong> Repository priorities</a></li><li class="chapter-item expanded "><a href="../../en/articles/resolving-merge-conflicts.html"><strong aria-hidden="true">18.</strong> Resolving merge conflicts</a></li><li class="chapter-item expanded "><a href="../../en/articles/scripts.html"><strong aria-hidden="true">19.</strong> Scripts</a></li><li class="chapter-item expanded "><a href="../../en/articles/troubleshooting.html"><strong aria-hidden="true">20.</strong> Troubleshooting</a></li><li class="chapter-item expanded "><a href="../../en/articles/vendor-binaries.html"><strong aria-hidden="true">21.</strong> Vendor binaries and the vendor/bin directory</a></li><li class="chapter-item expanded "><a href="../../en/articles/versions.html"><strong aria-hidden="true">22.</strong> Versions and constraints</a></li><li class="chapter-item expanded affix "><li class="part-title">FAQs</li><li class="chapter-item expanded "><a href="../../en/faqs/how-do-i-install-a-package-to-a-custom-path-for-my-framework.html"><strong aria-hidden="true">23.</strong> How do I install a package to a custom path for my framework?</a></li><li class="chapter-item expanded "><a href="../../en/faqs/how-to-install-composer-programmatically.html"><strong aria-hidden="true">24.</strong> How do I install Composer programmatically?</a></li><li class="chapter-item expanded "><a href="../../en/faqs/how-to-install-untrusted-packages-safely.html"><strong aria-hidden="true">25.</strong> How do I install untrusted packages safely? Is it safe to run Composer as superuser or root?</a></li><li class="chapter-item expanded "><a href="../../en/faqs/should-i-commit-the-dependencies-in-my-vendor-directory.html"><strong aria-hidden="true">26.</strong> Should I commit the dependencies in my vendor directory?</a></li><li class="chapter-item expanded "><a href="../../en/faqs/which-version-numbering-system-does-composer-itself-use.html"><strong aria-hidden="true">27.</strong> Which version numbering system does Composer itself use?</a></li><li class="chapter-item expanded "><a href="../../en/faqs/why-are-unbound-version-constraints-a-bad-idea.html"><strong aria-hidden="true">28.</strong> Why are unbound version constraints a bad idea?</a></li><li class="chapter-item expanded "><a href="../../en/faqs/why-are-version-constraints-combining-comparisons-and-wildcards-a-bad-idea.html"><strong aria-hidden="true">29.</strong> Why are version constraints combining comparisons and wildcards a bad idea?</a></li><li class="chapter-item expanded "><a href="../../en/faqs/why-cant-composer-load-repositories-recursively.html"><strong aria-hidden="true">30.</strong> Why can't Composer load repositories recursively?</a></li><li class="chapter-item expanded affix "><li class="part-title">API Docs</li><li class="chapter-item expanded "><div><strong aria-hidden="true">31.</strong> API Docs</div></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Composer - PT-BR</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!--
+    tagline: Access privately hosted packages/repositories
+-->
+<h1 id="authentication-for-privately-hosted-packages-and-repositories"><a class="header" href="#authentication-for-privately-hosted-packages-and-repositories">Authentication for privately hosted packages and repositories</a></h1>
+<p>Your <a href="handling-private-packages.html">private package server</a> or version control system is probably secured with one
+or more authentication options. In order to allow your project to have access to these
+packages and repositories you will have to tell Composer how to authenticate with the server that hosts them.</p>
+<h1 id="authentication-principles"><a class="header" href="#authentication-principles">Authentication principles</a></h1>
+<p>Whenever Composer encounters a protected Composer repository it will try to authenticate
+using already defined credentials first. When none of those credentials apply it will prompt
+for credentials and save them (or a token if Composer is able to retrieve one).</p>
+<table><thead><tr><th>type</th><th>Generated by Prompt?</th></tr></thead><tbody>
+<tr><td><a href="#http-basic">http-basic</a></td><td>yes</td></tr>
+<tr><td><a href="#inline-http-basic">Inline http-basic</a></td><td>no</td></tr>
+<tr><td><a href="#custom-token-authentication">Custom header</a></td><td>no</td></tr>
+<tr><td><a href="#gitlab-oauth">gitlab-oauth</a></td><td>yes</td></tr>
+<tr><td><a href="#gitlab-token">gitlab-token</a></td><td>yes</td></tr>
+<tr><td><a href="#github-oauth">github-oauth</a></td><td>yes</td></tr>
+<tr><td><a href="#bitbucket-oauth">bitbucket-oauth</a></td><td>yes</td></tr>
+</tbody></table>
+<p>Sometimes automatic authentication is not possible, or you may want to predefine
+authentication credentials.</p>
+<p>Credentials can be stored on 3 different places; in an <code>auth.json</code> for the project, a global
+<code>auth.json</code> or in the <code>composer.json</code> itself.</p>
+<h2 id="authentication-in-authjson-per-project"><a class="header" href="#authentication-in-authjson-per-project">Authentication in auth.json per project</a></h2>
+<p>In this authentication storage method, an <code>auth.json</code> file will be present in the same folder
+as the projects' <code>composer.json</code> file. You can either create and edit this file using the
+command line or manually edit or create it.</p>
+<blockquote>
+<p><strong>Note: Make sure the <code>auth.json</code> file is in <code>.gitignore</code></strong> to avoid
+leaking credentials into your git history.</p>
+</blockquote>
+<h2 id="global-authentication-credentials"><a class="header" href="#global-authentication-credentials">Global authentication credentials</a></h2>
+<p>If you don't want to supply credentials for every project you work on, storing your credentials
+globally might be a better idea. These credentials are stored in a global <code>auth.json</code> in your
+Composer home directory.</p>
+<h3 id="command-line-global-credential-editing"><a class="header" href="#command-line-global-credential-editing">Command line global credential editing</a></h3>
+<p>For all authentication methods it is possible to edit them using the command line;</p>
+<ul>
+<li><a href="#command-line-http-basic">http-basic</a></li>
+<li><a href="#command-line-inline-http-basic">Inline http-basic</a></li>
+<li><a href="#command-line-gitlab-oauth">gitlab-oauth</a></li>
+<li><a href="#command-line-gitlab-token">gitlab-token</a></li>
+<li><a href="#command-line-github-oauth">github-oauth</a></li>
+<li><a href="#command-line-bitbucket-oauth">bitbucket-oauth</a></li>
+</ul>
+<h3 id="manually-editing-global-authentication-credentials"><a class="header" href="#manually-editing-global-authentication-credentials">Manually editing global authentication credentials</a></h3>
+<blockquote>
+<p><strong>Note:</strong> It is not recommended to manually edit your authentication options as this might
+result in invalid json. Instead preferably use <a href="#command-line-global-credential-editing">the command line</a>.</p>
+</blockquote>
+<p>To manually edit it, run:</p>
+<pre><code class="language-sh">php composer.phar config --global --editor [--auth]
+</code></pre>
+<p>For specific authentication implementations, see their sections;</p>
+<ul>
+<li><a href="#manual-http-basic">http-basic</a></li>
+<li><a href="#manual-inline-http-basic">Inline http-basic</a></li>
+<li><a href="#manual-custom-token-authentication">custom header</a></li>
+<li><a href="#manual-gitlab-oauth">gitlab-oauth</a></li>
+<li><a href="#manual-gitlab-token">gitlab-token</a></li>
+<li><a href="#manual-github-oauth">github-oauth</a></li>
+<li><a href="#manual-bitbucket-oauth">bitbucket-oauth</a></li>
+</ul>
+<p>Manually editing this file instead of using the command line may result in invalid json errors.
+To fix this you need to open the file in an editor and fix the error. To find the location of
+your global <code>auth.json</code>, execute:</p>
+<pre><code class="language-sh">php composer.phar config --global home
+</code></pre>
+<p>The folder will contain your global <code>auth.json</code> if it exists.</p>
+<p>You can open this file in your favorite editor and fix the error.</p>
+<h2 id="authentication-in-composerjson-file-itself"><a class="header" href="#authentication-in-composerjson-file-itself">Authentication in composer.json file itself</a></h2>
+<blockquote>
+<p><strong>Note:</strong> <strong>This is not recommended</strong> as these credentials are visible
+to anyone who has access to the composer.json, either when it is shared through
+a version control system like git or when an attacker gains (read) access to
+your production server files.</p>
+</blockquote>
+<p>It is also possible to add credentials to a <code>composer.json</code> on a per-project basis in the <code>config</code>
+section or directly in the repository definition.</p>
+<h2 id="authentication-using-the-composer_auth-environment-variable"><a class="header" href="#authentication-using-the-composer_auth-environment-variable">Authentication using the COMPOSER_AUTH environment variable</a></h2>
+<blockquote>
+<p><strong>Note:</strong> Using the command line environment variable method also has security implications.
+These credentials will most likely be stored in memory,
+and on be persisted to a file like <code>~/.bash_history</code>(linux) or <code>ConsoleHost_history.txt</code>
+(PowerShell on Windows) when closing a session.</p>
+</blockquote>
+<p>The final option to supply Composer with credentials is to use the <code>COMPOSER_AUTH</code> environment variable.
+These variables can be either passed as command line variables or set in actual environment variables.
+Read more about the usage of this environment variable <a href="../03-cli.html#composer-auth">here</a>.</p>
+<h1 id="authentication-methods"><a class="header" href="#authentication-methods">Authentication methods</a></h1>
+<h2 id="http-basic"><a class="header" href="#http-basic">http-basic</a></h2>
+<h3 id="command-line-http-basic"><a class="header" href="#command-line-http-basic">Command line http-basic</a></h3>
+<pre><code class="language-sh">php composer.phar config [--global] http-basic.example.org username password
+</code></pre>
+<h3 id="manual-http-basic"><a class="header" href="#manual-http-basic">Manual http-basic</a></h3>
+<pre><code class="language-sh">php composer.phar config [--global] --editor --auth
+</code></pre>
+<pre><code class="language-json">{
+    &quot;http-basic&quot;: {
+        &quot;example.org&quot;: {
+            &quot;username&quot;: &quot;username&quot;,
+            &quot;password&quot;: &quot;password&quot;
+        }
+    }
+}
+</code></pre>
+<h2 id="inline-http-basic"><a class="header" href="#inline-http-basic">Inline http-basic</a></h2>
+<p>For the inline http-basic authentication method the credentials are not stored in a separate
+<code>auth.json</code> in the project or globally, but in the <code>composer.json</code> or global configuration
+in the same place where the Composer repository definition is defined.</p>
+<p>Make sure that the username and password are encoded according to <a href="http://www.faqs.org/rfcs/rfc3986.html">RFC 3986</a> (2.1. Percent-Encoding).
+If the username e.g. is an email address it needs to be passed as <code>name%40example.com</code>.</p>
+<h3 id="command-line-inline-http-basic"><a class="header" href="#command-line-inline-http-basic">Command line inline http-basic</a></h3>
+<pre><code class="language-sh">php composer.phar config [--global] repositories composer.unique-name https://username:password@repo.example.org
+</code></pre>
+<h3 id="manual-inline-http-basic"><a class="header" href="#manual-inline-http-basic">Manual inline http-basic</a></h3>
+<pre><code class="language-sh">php composer.phar config [--global] --editor
+</code></pre>
+<pre><code class="language-json">{
+    &quot;repositories&quot;: [
+        {
+            &quot;type&quot;: &quot;composer&quot;,
+            &quot;url&quot;: &quot;https://username:password@example.org&quot;
+        }
+    ]
+}
+</code></pre>
+<h2 id="custom-token-authentication"><a class="header" href="#custom-token-authentication">Custom token authentication</a></h2>
+<h3 id="manual-custom-token-authentication"><a class="header" href="#manual-custom-token-authentication">Manual custom token authentication</a></h3>
+<pre><code class="language-sh">php composer.phar config [--global] --editor
+</code></pre>
+<pre><code class="language-json">{
+    &quot;repositories&quot;: [
+        {
+            &quot;type&quot;: &quot;composer&quot;,
+            &quot;url&quot;: &quot;https://example.org&quot;,
+            &quot;options&quot;:  {
+              &quot;http&quot;: {
+                &quot;header&quot;: [
+                  &quot;API-TOKEN: YOUR-API-TOKEN&quot;
+                ]
+              }
+            }
+        }
+    ]
+}
+</code></pre>
+<h2 id="gitlab-oauth"><a class="header" href="#gitlab-oauth">gitlab-oauth</a></h2>
+<blockquote>
+<p><strong>Note:</strong> For the gitlab authentication to work on private gitlab instances, the
+<a href="../06-config.html#gitlab-domains"><code>gitlab-domains</code></a> section should also contain the url.</p>
+</blockquote>
+<h3 id="command-line-gitlab-oauth"><a class="header" href="#command-line-gitlab-oauth">Command line gitlab-oauth</a></h3>
+<pre><code class="language-sh">php composer.phar config [--global] gitlab-oauth.example.org token
+</code></pre>
+<h3 id="manual-gitlab-oauth"><a class="header" href="#manual-gitlab-oauth">Manual gitlab-oauth</a></h3>
+<pre><code class="language-sh">php composer.phar config [--global] --editor --auth
+</code></pre>
+<pre><code class="language-json">{
+    &quot;gitlab-oauth&quot;: {
+        &quot;example.org&quot;: &quot;token&quot;
+    }
+}
+</code></pre>
+<h2 id="gitlab-token"><a class="header" href="#gitlab-token">gitlab-token</a></h2>
+<blockquote>
+<p><strong>Note:</strong> For the gitlab authentication to work on private gitlab instances, the
+<a href="../06-config.html#gitlab-domains"><code>gitlab-domains</code></a> section should also contain the url.</p>
+</blockquote>
+<p>To create a new access token, go to your <a href="https://gitlab.com/-/profile/personal_access_tokens">access tokens section on GitLab</a>
+(or the equivalent URL on your private instance) and create a new token. See also <a href="https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#creating-a-personal-access-token">the GitLab access token documentation</a> for more information.</p>
+<p>When creating a gitlab token manually, make sure it has either the <code>read_api</code> or <code>api</code> scope.</p>
+<h3 id="command-line-gitlab-token"><a class="header" href="#command-line-gitlab-token">Command line gitlab-token</a></h3>
+<pre><code class="language-sh">php composer.phar config [--global] gitlab-token.example.org token
+</code></pre>
+<h3 id="manual-gitlab-token"><a class="header" href="#manual-gitlab-token">Manual gitlab-token</a></h3>
+<pre><code class="language-sh">php composer.phar config [--global] --editor --auth
+</code></pre>
+<pre><code class="language-json">{
+    &quot;gitlab-token&quot;: {
+        &quot;example.org&quot;: &quot;token&quot;
+    }
+}
+</code></pre>
+<h2 id="github-oauth"><a class="header" href="#github-oauth">github-oauth</a></h2>
+<p>To create a new access token, head to your <a href="https://github.com/settings/tokens">token settings section on Github</a> and <a href="https://github.com/settings/tokens/new">generate a new token</a>.</p>
+<p>For public repositories when rate limited, a token <em>without</em> any particular scope is sufficient (see <code>(no scope)</code> in the <a href="https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps">scopes documentation</a>). Such tokens grant read-only access to public information.</p>
+<p>For private repositories, the <code>repo</code> scope is needed. Note that the token will be given broad read/write access to all of your private repositories and much more - see the <a href="https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps">scopes documentation</a> for a complete list. As of writing (November 2021), it seems not to be possible to further limit permissions for such tokens.</p>
+<p>Read more about <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">Personal Access Tokens</a>, or subscribe to the <a href="https://github.com/github/roadmap/issues/184">roadmap item for better scoped tokens in GitHub</a>.</p>
+<h3 id="command-line-github-oauth"><a class="header" href="#command-line-github-oauth">Command line github-oauth</a></h3>
+<pre><code class="language-sh">php composer.phar config [--global] github-oauth.github.com token
+</code></pre>
+<h3 id="manual-github-oauth"><a class="header" href="#manual-github-oauth">Manual github-oauth</a></h3>
+<pre><code class="language-sh">php composer.phar config [--global] --editor --auth
+</code></pre>
+<pre><code class="language-json">{
+    &quot;github-oauth&quot;: {
+        &quot;github.com&quot;: &quot;token&quot;
+    }
+}
+</code></pre>
+<h2 id="bitbucket-oauth"><a class="header" href="#bitbucket-oauth">bitbucket-oauth</a></h2>
+<p>The BitBucket driver uses OAuth to access your private repositories via the BitBucket REST APIs, and you will need to create an OAuth consumer to use the driver, please refer to <a href="https://support.atlassian.com/bitbucket-cloud/docs/use-oauth-on-bitbucket-cloud/">Atlassian's Documentation</a>. You will need to fill the callback url with something to satisfy BitBucket, but the address does not need to go anywhere and is not used by Composer.</p>
+<h3 id="command-line-bitbucket-oauth"><a class="header" href="#command-line-bitbucket-oauth">Command line bitbucket-oauth</a></h3>
+<pre><code class="language-sh">php composer.phar config [--global] bitbucket-oauth.bitbucket.org consumer-key consumer-secret
+</code></pre>
+<h3 id="manual-bitbucket-oauth"><a class="header" href="#manual-bitbucket-oauth">Manual bitbucket-oauth</a></h3>
+<pre><code class="language-sh">php composer.phar config [--global] --editor --auth
+</code></pre>
+<pre><code class="language-json">{
+    &quot;bitbucket-oauth&quot;: {
+        &quot;bitbucket.org&quot;: {
+             &quot;consumer-key&quot;: &quot;key&quot;,
+             &quot;consumer-secret&quot;: &quot;secret&quot;
+        }
+    }
+}
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../en/articles/aliases.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../en/articles/autoloader-optimization.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../en/articles/aliases.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../en/articles/autoloader-optimization.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

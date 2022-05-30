@@ -1,0 +1,395 @@
+<!DOCTYPE HTML>
+<html lang="pt-br" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Versions and constraints - Composer - PT-BR</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">Book</li><li class="chapter-item expanded "><a href="../../en/00-intro.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../../en/01-basic-usage.html"><strong aria-hidden="true">2.</strong> Basic usage</a></li><li class="chapter-item expanded "><a href="../../en/02-libraries.html"><strong aria-hidden="true">3.</strong> Libraries</a></li><li class="chapter-item expanded "><a href="../../en/03-cli.html"><strong aria-hidden="true">4.</strong> CLI</a></li><li class="chapter-item expanded "><a href="../../en/04-schema.html"><strong aria-hidden="true">5.</strong> Schema</a></li><li class="chapter-item expanded "><a href="../../en/05-repositories.html"><strong aria-hidden="true">6.</strong> Repositories</a></li><li class="chapter-item expanded "><a href="../../en/06-config.html"><strong aria-hidden="true">7.</strong> Config</a></li><li class="chapter-item expanded "><a href="../../en/07-runtime.html"><strong aria-hidden="true">8.</strong> Runtime</a></li><li class="chapter-item expanded "><a href="../../en/08-community.html"><strong aria-hidden="true">9.</strong> Community</a></li><li class="chapter-item expanded affix "><li class="part-title">Articles</li><li class="chapter-item expanded "><a href="../../en/articles/aliases.html"><strong aria-hidden="true">10.</strong> Aliases</a></li><li class="chapter-item expanded "><a href="../../en/articles/authentication-for-private-packages.html"><strong aria-hidden="true">11.</strong> Authentication for privately hosted packages and repositories</a></li><li class="chapter-item expanded "><a href="../../en/articles/autoloader-optimization.html"><strong aria-hidden="true">12.</strong> Autoloader optimization</a></li><li class="chapter-item expanded "><a href="../../en/articles/composer-platform-dependencies.html"><strong aria-hidden="true">13.</strong> Composer platform dependencies</a></li><li class="chapter-item expanded "><a href="../../en/articles/custom-installers.html"><strong aria-hidden="true">14.</strong> Setting up and using custom installers</a></li><li class="chapter-item expanded "><a href="../../en/articles/handling-private-packages.html"><strong aria-hidden="true">15.</strong> Handling private packages</a></li><li class="chapter-item expanded "><a href="../../en/articles/plugins.html"><strong aria-hidden="true">16.</strong> Setting up and using plugins</a></li><li class="chapter-item expanded "><a href="../../en/articles/repository-priorities.html"><strong aria-hidden="true">17.</strong> Repository priorities</a></li><li class="chapter-item expanded "><a href="../../en/articles/resolving-merge-conflicts.html"><strong aria-hidden="true">18.</strong> Resolving merge conflicts</a></li><li class="chapter-item expanded "><a href="../../en/articles/scripts.html"><strong aria-hidden="true">19.</strong> Scripts</a></li><li class="chapter-item expanded "><a href="../../en/articles/troubleshooting.html"><strong aria-hidden="true">20.</strong> Troubleshooting</a></li><li class="chapter-item expanded "><a href="../../en/articles/vendor-binaries.html"><strong aria-hidden="true">21.</strong> Vendor binaries and the vendor/bin directory</a></li><li class="chapter-item expanded "><a href="../../en/articles/versions.html" class="active"><strong aria-hidden="true">22.</strong> Versions and constraints</a></li><li class="chapter-item expanded affix "><li class="part-title">FAQs</li><li class="chapter-item expanded "><a href="../../en/faqs/how-do-i-install-a-package-to-a-custom-path-for-my-framework.html"><strong aria-hidden="true">23.</strong> How do I install a package to a custom path for my framework?</a></li><li class="chapter-item expanded "><a href="../../en/faqs/how-to-install-composer-programmatically.html"><strong aria-hidden="true">24.</strong> How do I install Composer programmatically?</a></li><li class="chapter-item expanded "><a href="../../en/faqs/how-to-install-untrusted-packages-safely.html"><strong aria-hidden="true">25.</strong> How do I install untrusted packages safely? Is it safe to run Composer as superuser or root?</a></li><li class="chapter-item expanded "><a href="../../en/faqs/should-i-commit-the-dependencies-in-my-vendor-directory.html"><strong aria-hidden="true">26.</strong> Should I commit the dependencies in my vendor directory?</a></li><li class="chapter-item expanded "><a href="../../en/faqs/which-version-numbering-system-does-composer-itself-use.html"><strong aria-hidden="true">27.</strong> Which version numbering system does Composer itself use?</a></li><li class="chapter-item expanded "><a href="../../en/faqs/why-are-unbound-version-constraints-a-bad-idea.html"><strong aria-hidden="true">28.</strong> Why are unbound version constraints a bad idea?</a></li><li class="chapter-item expanded "><a href="../../en/faqs/why-are-version-constraints-combining-comparisons-and-wildcards-a-bad-idea.html"><strong aria-hidden="true">29.</strong> Why are version constraints combining comparisons and wildcards a bad idea?</a></li><li class="chapter-item expanded "><a href="../../en/faqs/why-cant-composer-load-repositories-recursively.html"><strong aria-hidden="true">30.</strong> Why can't Composer load repositories recursively?</a></li><li class="chapter-item expanded affix "><li class="part-title">API Docs</li><li class="chapter-item expanded "><div><strong aria-hidden="true">31.</strong> API Docs</div></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Composer - PT-BR</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!--
+    tagline: Versions explained.
+-->
+<h1 id="versions-and-constraints"><a class="header" href="#versions-and-constraints">Versions and constraints</a></h1>
+<h2 id="composer-versions-vs-vcs-versions"><a class="header" href="#composer-versions-vs-vcs-versions">Composer Versions vs VCS Versions</a></h2>
+<p>Because Composer is heavily geared toward utilizing version control systems
+like git, the term &quot;version&quot; can be a little ambiguous. In the sense of a
+version control system, a &quot;version&quot; is a specific set of files that contain
+specific data. In git terminology, this is a &quot;ref&quot;, or a specific commit,
+which may be represented by a branch HEAD or a tag. When you check out that
+version in your VCS -- for example, tag <code>v1.1</code> or commit <code>e35fa0d</code> --, you're
+asking for a single, known set of files, and you always get the same files back.</p>
+<p>In Composer, what's often referred to casually as a version -- that is,
+the string that follows the package name in a require line (e.g., <code>~1.1</code> or
+<code>1.2.*</code>) -- is actually more specifically a version constraint. Composer
+uses version constraints to figure out which refs in a VCS it should be
+checking out (or to verify that a given library is acceptable in
+the case of a statically-maintained library with a <code>version</code> specification
+in <code>composer.json</code>).</p>
+<h2 id="vcs-tags-and-branches"><a class="header" href="#vcs-tags-and-branches">VCS Tags and Branches</a></h2>
+<p><em>For the following discussion, let's assume the following sample library
+repository:</em></p>
+<pre><code class="language-sh">~/my-library$ git branch
+v1
+v2
+my-feature
+another-feature
+
+~/my-library$ git tag
+v1.0
+v1.0.1
+v1.0.2
+v1.1-BETA
+v1.1-RC1
+v1.1-RC2
+v1.1
+v1.1.1
+v2.0-BETA
+v2.0-RC1
+v2.0
+v2.0.1
+v2.0.2
+</code></pre>
+<h3 id="tags"><a class="header" href="#tags">Tags</a></h3>
+<p>Normally, Composer deals with tags (as opposed to branches -- if you don't
+know what this means, read up on
+<a href="https://en.wikipedia.org/wiki/Version_control#Common_terminology">version control systems</a>).
+When you write a version constraint, it may reference a specific tag (e.g.,
+<code>1.1</code>) or it may reference a valid range of tags (e.g., <code>&gt;=1.1 &lt;2.0</code>, or
+<code>~4.0</code>). To resolve these constraints, Composer first asks the VCS to list
+all available tags, then creates an internal list of available versions based
+on these tags. In the above example, composer's internal list includes versions
+<code>1.0</code>, <code>1.0.1</code>, <code>1.0.2</code>, the beta release of <code>1.1</code>, the first and second
+release candidates of <code>1.1</code>, the final release version <code>1.1</code>, etc.... (Note
+that Composer automatically removes the 'v' prefix in the actual tagname to
+get a valid final version number.)</p>
+<p>When Composer has a complete list of available versions from your VCS, it then
+finds the highest version that matches all version constraints in your project
+(it's possible that other packages require more specific versions of the
+library than you do, so the version it chooses may not always be the highest
+available version) and it downloads a zip archive of that tag to unpack in the
+correct location in your <code>vendor</code> directory.</p>
+<h3 id="branches"><a class="header" href="#branches">Branches</a></h3>
+<p>If you want Composer to check out a branch instead of a tag, you need to point it to the branch using the special <code>dev-*</code> prefix (or sometimes suffix; see below). If you're checking out a branch, it's assumed that you want to <em>work</em> on the branch and Composer actually clones the repo into the correct place in your <code>vendor</code> directory. For tags, it copies the right files without actually cloning the repo. (You can modify this behavior with --prefer-source and --prefer-dist, see <a href="../03-cli.html#install">install options</a>.)</p>
+<p>In the above example, if you wanted to check out the <code>my-feature</code> branch, you would specify <code>dev-my-feature</code> as the version constraint in your <code>require</code> clause. This would result in Composer cloning the <code>my-library</code> repository into my <code>vendor</code> directory and checking out the <code>my-feature</code> branch.</p>
+<p>When branch names look like versions, we have to clarify for Composer that we're trying to check out a branch and not a tag. In the above example, we have two version branches: <code>v1</code> and <code>v2</code>. To get Composer to check out one of these branches, you must specify a version constraint that looks like this: <code>v1.x-dev</code>. The <code>.x</code> is an arbitrary string that Composer requires to tell it that we're talking about the <code>v1</code> branch and not a <code>v1</code> tag (alternatively, you can name the branch <code>v1.x</code> instead of <code>v1</code>). In the case of a branch with a version-like name (<code>v1</code>, in this case), you append <code>-dev</code> as a suffix, rather than using <code>dev-</code> as a prefix.</p>
+<h3 id="stabilities"><a class="header" href="#stabilities">Stabilities</a></h3>
+<p>Composer recognizes the following stabilities (in order of stability): dev,
+alpha, beta, RC, and stable where RC stands for release candidate. The stability
+of a version is defined by its suffix e.g version <code>v1.1-BETA</code> has a stability of
+<code>beta</code> and <code>v1.1-RC1</code> has a stability of <code>RC</code>. If such a suffix is missing
+e.g. version <code>v1.1</code> then Composer considers that version <code>stable</code>. In addition
+to that Composer automatically adds a <code>-dev</code> suffix to all numeric branches and
+prefixes all other branches imported from a VCS repository with <code>dev-</code>. In both
+cases the stability <code>dev</code> gets assigned.</p>
+<p>Keeping this in mind will help you in the next section.</p>
+<h3 id="minimum-stability"><a class="header" href="#minimum-stability">Minimum Stability</a></h3>
+<p>There's one more thing that will affect which files are checked out of a library's VCS and added to your project: Composer allows you to specify stability constraints to limit which tags are considered valid. In the above example, note that the library released a beta and two release candidates for version <code>1.1</code> before the final official release. To receive these versions when running <code>composer install</code> or <code>composer update</code>, we have to explicitly tell Composer that we are ok with release candidates and beta releases (and alpha releases, if we want those). This can be done using either a project-wide <code>minimum-stability</code> value in <code>composer.json</code> or using &quot;stability flags&quot; in version constraints. Read more on the <a href="../04-schema.html#minimum-stability">schema page</a>.</p>
+<h2 id="writing-version-constraints"><a class="header" href="#writing-version-constraints">Writing Version Constraints</a></h2>
+<p>Now that you have an idea of how Composer sees versions, let's talk about how
+to specify version constraints for your project dependencies.</p>
+<h3 id="exact-version-constraint"><a class="header" href="#exact-version-constraint">Exact Version Constraint</a></h3>
+<p>You can specify the exact version of a package. This will tell Composer to
+install this version and this version only. If other dependencies require
+a different version, the solver will ultimately fail and abort any install
+or update procedures.</p>
+<p>Example: <code>1.0.2</code></p>
+<h3 id="version-range"><a class="header" href="#version-range">Version Range</a></h3>
+<p>By using comparison operators you can specify ranges of valid versions. Valid
+operators are <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>!=</code>.</p>
+<p>You can define multiple ranges. Ranges separated by a space (<code> </code>)
+or comma (<code>,</code>) will be treated as a <strong>logical AND</strong>. A double pipe (<code>||</code>)
+will be treated as a <strong>logical OR</strong>. AND has higher precedence than OR.</p>
+<blockquote>
+<p><strong>Note:</strong> Be careful when using unbounded ranges as you might end up
+unexpectedly installing versions that break backwards compatibility.
+Consider using the <a href="#caret-version-range-">caret</a> operator instead for safety.</p>
+</blockquote>
+<!--blank line followed by comment markup to separate the block quotes-->
+<blockquote>
+<p><strong>Note:</strong> In older versions of Composer the single pipe (<code>|</code>) was the
+recommended alternative to the <strong>logical OR</strong>. Thus for backwards compatibility
+the single pipe (<code>|</code>) will still be treated as a <strong>logical OR</strong>.</p>
+</blockquote>
+<p>Examples:</p>
+<ul>
+<li><code>&gt;=1.0</code></li>
+<li><code>&gt;=1.0 &lt;2.0</code></li>
+<li><code>&gt;=1.0 &lt;1.1 || &gt;=1.2</code></li>
+</ul>
+<h3 id="hyphenated-version-range--"><a class="header" href="#hyphenated-version-range--">Hyphenated Version Range (<code>-</code>)</a></h3>
+<p>Inclusive set of versions. Partial versions on the right include are completed
+with a wildcard. For example <code>1.0 - 2.0</code> is equivalent to <code>&gt;=1.0.0 &lt;2.1</code> as the
+<code>2.0</code> becomes <code>2.0.*</code>. On the other hand <code>1.0.0 - 2.1.0</code> is equivalent to
+<code>&gt;=1.0.0 &lt;=2.1.0</code>.</p>
+<p>Example: <code>1.0 - 2.0</code></p>
+<h3 id="wildcard-version-range-"><a class="header" href="#wildcard-version-range-">Wildcard Version Range (<code>.*</code>)</a></h3>
+<p>You can specify a pattern with a <code>*</code> wildcard. <code>1.0.*</code> is the equivalent of
+<code>&gt;=1.0 &lt;1.1</code>.</p>
+<p>Example: <code>1.0.*</code></p>
+<h2 id="next-significant-release-operators"><a class="header" href="#next-significant-release-operators">Next Significant Release Operators</a></h2>
+<h3 id="tilde-version-range-"><a class="header" href="#tilde-version-range-">Tilde Version Range (<code>~</code>)</a></h3>
+<p>The <code>~</code> operator is best explained by example: <code>~1.2</code> is equivalent to
+<code>&gt;=1.2 &lt;2.0.0</code>, while <code>~1.2.3</code> is equivalent to <code>&gt;=1.2.3 &lt;1.3.0</code>. As you can see
+it is mostly useful for projects respecting <a href="https://semver.org/">semantic
+versioning</a>. A common usage would be to mark the minimum
+minor version you depend on, like <code>~1.2</code> (which allows anything up to, but not
+including, 2.0). Since in theory there should be no backwards compatibility
+breaks until 2.0, that works well. Another way of looking at it is that using
+<code>~</code> specifies a minimum version, but allows the last digit specified to go up.</p>
+<p>Example: <code>~1.2</code></p>
+<blockquote>
+<p><strong>Note:</strong> Although <code>2.0-beta.1</code> is strictly before <code>2.0</code>, a version constraint
+like <code>~1.2</code> would not install it. As said above <code>~1.2</code> only means the <code>.2</code>
+can change but the <code>1.</code> part is fixed.</p>
+</blockquote>
+<blockquote>
+<p><strong>Note:</strong> The <code>~</code> operator has an exception on its behavior for the major
+release number. This means for example that <code>~1</code> is the same as <code>~1.0</code> as
+it will not allow the major number to increase trying to keep backwards
+compatibility.</p>
+</blockquote>
+<h3 id="caret-version-range-"><a class="header" href="#caret-version-range-">Caret Version Range (<code>^</code>)</a></h3>
+<p>The <code>^</code> operator behaves very similarly, but it sticks closer to semantic
+versioning, and will always allow non-breaking updates. For example <code>^1.2.3</code>
+is equivalent to <code>&gt;=1.2.3 &lt;2.0.0</code> as none of the releases until 2.0 should
+break backwards compatibility. For pre-1.0 versions it also acts with safety
+in mind and treats <code>^0.3</code> as <code>&gt;=0.3.0 &lt;0.4.0</code> and <code>^0.0.3</code> as <code>&gt;=0.0.3 &lt;0.0.4</code>.</p>
+<p>This is the recommended operator for maximum interoperability when writing
+library code.</p>
+<p>Example: <code>^1.2.3</code></p>
+<h2 id="stability-constraints"><a class="header" href="#stability-constraints">Stability Constraints</a></h2>
+<p>If you are using a constraint that does not explicitly define a stability,
+Composer will default internally to <code>-dev</code> or <code>-stable</code>, depending on the
+operator(s) used. This happens transparently.</p>
+<p>If you wish to explicitly consider only the stable release in the comparison,
+add the suffix <code>-stable</code>.</p>
+<p>Examples:</p>
+<table><thead><tr><th>Constraint</th><th>Internally</th></tr></thead><tbody>
+<tr><td><code>1.2.3</code></td><td><code>=1.2.3.0-stable</code></td></tr>
+<tr><td><code>&gt;1.2</code></td><td><code>&gt;1.2.0.0-stable</code></td></tr>
+<tr><td><code>&gt;=1.2</code></td><td><code>&gt;=1.2.0.0-dev</code></td></tr>
+<tr><td><code>&gt;=1.2-stable</code></td><td><code>&gt;=1.2.0.0-stable</code></td></tr>
+<tr><td><code>&lt;1.3</code></td><td><code>&lt;1.3.0.0-dev</code></td></tr>
+<tr><td><code>&lt;=1.3</code></td><td><code>&lt;=1.3.0.0-stable</code></td></tr>
+<tr><td><code>1 - 2</code></td><td><code>&gt;=1.0.0.0-dev &lt;3.0.0.0-dev</code></td></tr>
+<tr><td><code>~1.3</code></td><td><code>&gt;=1.3.0.0-dev &lt;2.0.0.0-dev</code></td></tr>
+<tr><td><code>1.4.*</code></td><td><code>&gt;=1.4.0.0-dev &lt;1.5.0.0-dev</code></td></tr>
+</tbody></table>
+<p>To allow various stabilities without enforcing them at the constraint level
+however, you may use <a href="../04-schema.html#package-links">stability-flags</a> like
+<code>@&lt;stability&gt;</code> (e.g. <code>@dev</code>) to let Composer know that a given package
+can be installed in a different stability than your default minimum-stability
+setting. All available stability flags are listed on the minimum-stability
+section of the <a href="../04-schema.html#minimum-stability">schema page</a>.</p>
+<h2 id="summary"><a class="header" href="#summary">Summary</a></h2>
+<pre><code class="language-jsonc">&quot;require&quot;: {
+    &quot;vendor/package&quot;: &quot;1.3.2&quot;, // exactly 1.3.2
+
+    // &gt;, &lt;, &gt;=, &lt;= | specify upper / lower bounds
+    &quot;vendor/package&quot;: &quot;&gt;=1.3.2&quot;, // anything above or equal to 1.3.2
+    &quot;vendor/package&quot;: &quot;&lt;1.3.2&quot;, // anything below 1.3.2
+
+    // * | wildcard
+    &quot;vendor/package&quot;: &quot;1.3.*&quot;, // &gt;=1.3.0 &lt;1.4.0
+
+    // ~ | allows last digit specified to go up
+    &quot;vendor/package&quot;: &quot;~1.3.2&quot;, // &gt;=1.3.2 &lt;1.4.0
+    &quot;vendor/package&quot;: &quot;~1.3&quot;, // &gt;=1.3.0 &lt;2.0.0
+
+    // ^ | doesn't allow breaking changes (major version fixed - following semver)
+    &quot;vendor/package&quot;: &quot;^1.3.2&quot;, // &gt;=1.3.2 &lt;2.0.0
+    &quot;vendor/package&quot;: &quot;^0.3.2&quot;, // &gt;=0.3.2 &lt;0.4.0 // except if major version is 0
+}
+</code></pre>
+<h2 id="testing-version-constraints"><a class="header" href="#testing-version-constraints">Testing Version Constraints</a></h2>
+<p>You can test version constraints using <a href="https://semver.madewithlove.com">semver.madewithlove.com</a>.
+Fill in a package name and it will autofill the default version constraint
+which Composer would add to your <code>composer.json</code> file. You can adjust the
+version constraint and the tool will highlight all releases that match.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../en/articles/vendor-binaries.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../en/faqs/how-do-i-install-a-package-to-a-custom-path-for-my-framework.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../en/articles/vendor-binaries.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../en/faqs/how-do-i-install-a-package-to-a-custom-path-for-my-framework.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

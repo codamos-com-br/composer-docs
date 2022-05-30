@@ -1,0 +1,283 @@
+<!DOCTYPE HTML>
+<html lang="pt-br" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Autoloader optimization - Composer - PT-BR</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">Book</li><li class="chapter-item expanded "><a href="../../en/00-intro.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../../en/01-basic-usage.html"><strong aria-hidden="true">2.</strong> Basic usage</a></li><li class="chapter-item expanded "><a href="../../en/02-libraries.html"><strong aria-hidden="true">3.</strong> Libraries</a></li><li class="chapter-item expanded "><a href="../../en/03-cli.html"><strong aria-hidden="true">4.</strong> CLI</a></li><li class="chapter-item expanded "><a href="../../en/04-schema.html"><strong aria-hidden="true">5.</strong> Schema</a></li><li class="chapter-item expanded "><a href="../../en/05-repositories.html"><strong aria-hidden="true">6.</strong> Repositories</a></li><li class="chapter-item expanded "><a href="../../en/06-config.html"><strong aria-hidden="true">7.</strong> Config</a></li><li class="chapter-item expanded "><a href="../../en/07-runtime.html"><strong aria-hidden="true">8.</strong> Runtime</a></li><li class="chapter-item expanded "><a href="../../en/08-community.html"><strong aria-hidden="true">9.</strong> Community</a></li><li class="chapter-item expanded affix "><li class="part-title">Articles</li><li class="chapter-item expanded "><a href="../../en/articles/aliases.html"><strong aria-hidden="true">10.</strong> Aliases</a></li><li class="chapter-item expanded "><a href="../../en/articles/authentication-for-private-packages.html"><strong aria-hidden="true">11.</strong> Authentication for privately hosted packages and repositories</a></li><li class="chapter-item expanded "><a href="../../en/articles/autoloader-optimization.html" class="active"><strong aria-hidden="true">12.</strong> Autoloader optimization</a></li><li class="chapter-item expanded "><a href="../../en/articles/composer-platform-dependencies.html"><strong aria-hidden="true">13.</strong> Composer platform dependencies</a></li><li class="chapter-item expanded "><a href="../../en/articles/custom-installers.html"><strong aria-hidden="true">14.</strong> Setting up and using custom installers</a></li><li class="chapter-item expanded "><a href="../../en/articles/handling-private-packages.html"><strong aria-hidden="true">15.</strong> Handling private packages</a></li><li class="chapter-item expanded "><a href="../../en/articles/plugins.html"><strong aria-hidden="true">16.</strong> Setting up and using plugins</a></li><li class="chapter-item expanded "><a href="../../en/articles/repository-priorities.html"><strong aria-hidden="true">17.</strong> Repository priorities</a></li><li class="chapter-item expanded "><a href="../../en/articles/resolving-merge-conflicts.html"><strong aria-hidden="true">18.</strong> Resolving merge conflicts</a></li><li class="chapter-item expanded "><a href="../../en/articles/scripts.html"><strong aria-hidden="true">19.</strong> Scripts</a></li><li class="chapter-item expanded "><a href="../../en/articles/troubleshooting.html"><strong aria-hidden="true">20.</strong> Troubleshooting</a></li><li class="chapter-item expanded "><a href="../../en/articles/vendor-binaries.html"><strong aria-hidden="true">21.</strong> Vendor binaries and the vendor/bin directory</a></li><li class="chapter-item expanded "><a href="../../en/articles/versions.html"><strong aria-hidden="true">22.</strong> Versions and constraints</a></li><li class="chapter-item expanded affix "><li class="part-title">FAQs</li><li class="chapter-item expanded "><a href="../../en/faqs/how-do-i-install-a-package-to-a-custom-path-for-my-framework.html"><strong aria-hidden="true">23.</strong> How do I install a package to a custom path for my framework?</a></li><li class="chapter-item expanded "><a href="../../en/faqs/how-to-install-composer-programmatically.html"><strong aria-hidden="true">24.</strong> How do I install Composer programmatically?</a></li><li class="chapter-item expanded "><a href="../../en/faqs/how-to-install-untrusted-packages-safely.html"><strong aria-hidden="true">25.</strong> How do I install untrusted packages safely? Is it safe to run Composer as superuser or root?</a></li><li class="chapter-item expanded "><a href="../../en/faqs/should-i-commit-the-dependencies-in-my-vendor-directory.html"><strong aria-hidden="true">26.</strong> Should I commit the dependencies in my vendor directory?</a></li><li class="chapter-item expanded "><a href="../../en/faqs/which-version-numbering-system-does-composer-itself-use.html"><strong aria-hidden="true">27.</strong> Which version numbering system does Composer itself use?</a></li><li class="chapter-item expanded "><a href="../../en/faqs/why-are-unbound-version-constraints-a-bad-idea.html"><strong aria-hidden="true">28.</strong> Why are unbound version constraints a bad idea?</a></li><li class="chapter-item expanded "><a href="../../en/faqs/why-are-version-constraints-combining-comparisons-and-wildcards-a-bad-idea.html"><strong aria-hidden="true">29.</strong> Why are version constraints combining comparisons and wildcards a bad idea?</a></li><li class="chapter-item expanded "><a href="../../en/faqs/why-cant-composer-load-repositories-recursively.html"><strong aria-hidden="true">30.</strong> Why can't Composer load repositories recursively?</a></li><li class="chapter-item expanded affix "><li class="part-title">API Docs</li><li class="chapter-item expanded "><div><strong aria-hidden="true">31.</strong> API Docs</div></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Composer - PT-BR</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!--
+    tagline: How to reduce the performance impact of the autoloader
+-->
+<h1 id="autoloader-optimization"><a class="header" href="#autoloader-optimization">Autoloader optimization</a></h1>
+<p>By default, the Composer autoloader runs relatively fast. However, due to the way
+PSR-4 and PSR-0 autoloading rules are set up, it needs to check the filesystem
+before resolving a classname conclusively. This slows things down quite a bit,
+but it is convenient in development environments because when you add a new class
+it can immediately be discovered/used without having to rebuild the autoloader
+configuration.</p>
+<p>The problem however is in production you generally want things to happen as fast
+as possible, as you can rebuild the configuration every time you deploy and
+new classes do not appear at random between deploys.</p>
+<p>For this reason, Composer offers a few strategies to optimize the autoloader.</p>
+<blockquote>
+<p><strong>Note:</strong> You <strong>should not</strong> enable any of these optimizations in <strong>development</strong> as
+they all will cause various problems when adding/removing classes. The performance
+gains are not worth the trouble in a development setting.</p>
+</blockquote>
+<h2 id="optimization-level-1-class-map-generation"><a class="header" href="#optimization-level-1-class-map-generation">Optimization Level 1: Class map generation</a></h2>
+<h3 id="how-to-run-it"><a class="header" href="#how-to-run-it">How to run it?</a></h3>
+<p>There are a few options to enable this:</p>
+<ul>
+<li>Set <code>&quot;optimize-autoloader&quot;: true</code> inside the config key of composer.json</li>
+<li>Call <code>install</code> or <code>update</code> with <code>-o</code> / <code>--optimize-autoloader</code></li>
+<li>Call <code>dump-autoload</code> with <code>-o</code> / <code>--optimize</code></li>
+</ul>
+<h3 id="what-does-it-do"><a class="header" href="#what-does-it-do">What does it do?</a></h3>
+<p>Class map generation essentially converts PSR-4/PSR-0 rules into classmap rules.
+This makes everything quite a bit faster as for known classes the class map
+returns instantly the path, and Composer can guarantee the class is in there so
+there is no filesystem check needed.</p>
+<p>On PHP 5.6+, the class map is also cached in opcache which improves the initialization
+time greatly. If you make sure opcache is enabled, then the class map should load
+almost instantly and then class loading is fast.</p>
+<h3 id="trade-offs"><a class="header" href="#trade-offs">Trade-offs</a></h3>
+<p>There are no real trade-offs with this method. It should always be enabled in
+production.</p>
+<p>The only issue is it does not keep track of autoload misses (i.e. when
+it cannot find a given class), so those fallback to PSR-4 rules and can still
+result in slow filesystem checks. To solve this issue two Level 2 optimization
+options exist, and you can decide to enable either if you have a lot of
+class_exists checks that are done for classes that do not exist in your project.</p>
+<h2 id="optimization-level-2a-authoritative-class-maps"><a class="header" href="#optimization-level-2a-authoritative-class-maps">Optimization Level 2/A: Authoritative class maps</a></h2>
+<h3 id="how-to-run-it-1"><a class="header" href="#how-to-run-it-1">How to run it?</a></h3>
+<p>There are a few options to enable this:</p>
+<ul>
+<li>Set <code>&quot;classmap-authoritative&quot;: true</code> inside the config key of composer.json</li>
+<li>Call <code>install</code> or <code>update</code> with <code>-a</code> / <code>--classmap-authoritative</code></li>
+<li>Call <code>dump-autoload</code> with <code>-a</code> / <code>--classmap-authoritative</code></li>
+</ul>
+<h3 id="what-does-it-do-1"><a class="header" href="#what-does-it-do-1">What does it do?</a></h3>
+<p>Enabling this automatically enables Level 1 class map optimizations.</p>
+<p>This option says that if something is not found in the classmap,
+then it does not exist and the autoloader should not attempt to look on the
+filesystem according to PSR-4 rules.</p>
+<h3 id="trade-offs-1"><a class="header" href="#trade-offs-1">Trade-offs</a></h3>
+<p>This option makes the autoloader always return very quickly. On the flipside it
+also means that in case a class is generated at runtime for some reason, it will
+not be allowed to be autoloaded. If your project or any of your dependencies does that
+then you might experience &quot;class not found&quot; issues in production. Enable this with care.</p>
+<blockquote>
+<p>Note: This cannot be combined with Level 2/B optimizations. You have to choose one as
+they address the same issue in different ways.</p>
+</blockquote>
+<h2 id="optimization-level-2b-apcu-cache"><a class="header" href="#optimization-level-2b-apcu-cache">Optimization Level 2/B: APCu cache</a></h2>
+<h3 id="how-to-run-it-2"><a class="header" href="#how-to-run-it-2">How to run it?</a></h3>
+<p>There are a few options to enable this:</p>
+<ul>
+<li>Set <code>&quot;apcu-autoloader&quot;: true</code> inside the config key of composer.json</li>
+<li>Call <code>install</code> or <code>update</code> with <code>--apcu-autoloader</code></li>
+<li>Call <code>dump-autoload</code> with <code>--apcu</code></li>
+</ul>
+<h3 id="what-does-it-do-2"><a class="header" href="#what-does-it-do-2">What does it do?</a></h3>
+<p>This option adds an APCu cache as a fallback for the class map. It will not
+automatically generate the class map though, so you should still enable Level 1
+optimizations manually if you so desire.</p>
+<p>Whether a class is found or not, that fact is always cached in APCu, so it can be
+returned quickly on the next request.</p>
+<h3 id="trade-offs-2"><a class="header" href="#trade-offs-2">Trade-offs</a></h3>
+<p>This option requires APCu which may or may not be available to you. It also
+uses APCu memory for autoloading purposes, but it is safe to use and cannot
+result in classes not being found like the authoritative class map
+optimization above.</p>
+<blockquote>
+<p>Note: This cannot be combined with Level 2/A optimizations. You have to choose one as
+they address the same issue in different ways.</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../en/articles/authentication-for-private-packages.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../en/articles/composer-platform-dependencies.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../en/articles/authentication-for-private-packages.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../en/articles/composer-platform-dependencies.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

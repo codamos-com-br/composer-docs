@@ -1,0 +1,491 @@
+<!DOCTYPE HTML>
+<html lang="pt-br" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Config - Composer - PT-BR</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">Book</li><li class="chapter-item expanded "><a href="../en/00-intro.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../en/01-basic-usage.html"><strong aria-hidden="true">2.</strong> Basic usage</a></li><li class="chapter-item expanded "><a href="../en/02-libraries.html"><strong aria-hidden="true">3.</strong> Libraries</a></li><li class="chapter-item expanded "><a href="../en/03-cli.html"><strong aria-hidden="true">4.</strong> CLI</a></li><li class="chapter-item expanded "><a href="../en/04-schema.html"><strong aria-hidden="true">5.</strong> Schema</a></li><li class="chapter-item expanded "><a href="../en/05-repositories.html"><strong aria-hidden="true">6.</strong> Repositories</a></li><li class="chapter-item expanded "><a href="../en/06-config.html" class="active"><strong aria-hidden="true">7.</strong> Config</a></li><li class="chapter-item expanded "><a href="../en/07-runtime.html"><strong aria-hidden="true">8.</strong> Runtime</a></li><li class="chapter-item expanded "><a href="../en/08-community.html"><strong aria-hidden="true">9.</strong> Community</a></li><li class="chapter-item expanded affix "><li class="part-title">Articles</li><li class="chapter-item expanded "><a href="../en/articles/aliases.html"><strong aria-hidden="true">10.</strong> Aliases</a></li><li class="chapter-item expanded "><a href="../en/articles/authentication-for-private-packages.html"><strong aria-hidden="true">11.</strong> Authentication for privately hosted packages and repositories</a></li><li class="chapter-item expanded "><a href="../en/articles/autoloader-optimization.html"><strong aria-hidden="true">12.</strong> Autoloader optimization</a></li><li class="chapter-item expanded "><a href="../en/articles/composer-platform-dependencies.html"><strong aria-hidden="true">13.</strong> Composer platform dependencies</a></li><li class="chapter-item expanded "><a href="../en/articles/custom-installers.html"><strong aria-hidden="true">14.</strong> Setting up and using custom installers</a></li><li class="chapter-item expanded "><a href="../en/articles/handling-private-packages.html"><strong aria-hidden="true">15.</strong> Handling private packages</a></li><li class="chapter-item expanded "><a href="../en/articles/plugins.html"><strong aria-hidden="true">16.</strong> Setting up and using plugins</a></li><li class="chapter-item expanded "><a href="../en/articles/repository-priorities.html"><strong aria-hidden="true">17.</strong> Repository priorities</a></li><li class="chapter-item expanded "><a href="../en/articles/resolving-merge-conflicts.html"><strong aria-hidden="true">18.</strong> Resolving merge conflicts</a></li><li class="chapter-item expanded "><a href="../en/articles/scripts.html"><strong aria-hidden="true">19.</strong> Scripts</a></li><li class="chapter-item expanded "><a href="../en/articles/troubleshooting.html"><strong aria-hidden="true">20.</strong> Troubleshooting</a></li><li class="chapter-item expanded "><a href="../en/articles/vendor-binaries.html"><strong aria-hidden="true">21.</strong> Vendor binaries and the vendor/bin directory</a></li><li class="chapter-item expanded "><a href="../en/articles/versions.html"><strong aria-hidden="true">22.</strong> Versions and constraints</a></li><li class="chapter-item expanded affix "><li class="part-title">FAQs</li><li class="chapter-item expanded "><a href="../en/faqs/how-do-i-install-a-package-to-a-custom-path-for-my-framework.html"><strong aria-hidden="true">23.</strong> How do I install a package to a custom path for my framework?</a></li><li class="chapter-item expanded "><a href="../en/faqs/how-to-install-composer-programmatically.html"><strong aria-hidden="true">24.</strong> How do I install Composer programmatically?</a></li><li class="chapter-item expanded "><a href="../en/faqs/how-to-install-untrusted-packages-safely.html"><strong aria-hidden="true">25.</strong> How do I install untrusted packages safely? Is it safe to run Composer as superuser or root?</a></li><li class="chapter-item expanded "><a href="../en/faqs/should-i-commit-the-dependencies-in-my-vendor-directory.html"><strong aria-hidden="true">26.</strong> Should I commit the dependencies in my vendor directory?</a></li><li class="chapter-item expanded "><a href="../en/faqs/which-version-numbering-system-does-composer-itself-use.html"><strong aria-hidden="true">27.</strong> Which version numbering system does Composer itself use?</a></li><li class="chapter-item expanded "><a href="../en/faqs/why-are-unbound-version-constraints-a-bad-idea.html"><strong aria-hidden="true">28.</strong> Why are unbound version constraints a bad idea?</a></li><li class="chapter-item expanded "><a href="../en/faqs/why-are-version-constraints-combining-comparisons-and-wildcards-a-bad-idea.html"><strong aria-hidden="true">29.</strong> Why are version constraints combining comparisons and wildcards a bad idea?</a></li><li class="chapter-item expanded "><a href="../en/faqs/why-cant-composer-load-repositories-recursively.html"><strong aria-hidden="true">30.</strong> Why can't Composer load repositories recursively?</a></li><li class="chapter-item expanded affix "><li class="part-title">API Docs</li><li class="chapter-item expanded "><div><strong aria-hidden="true">31.</strong> API Docs</div></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Composer - PT-BR</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="config"><a class="header" href="#config">Config</a></h1>
+<p>This chapter will describe the <code>config</code> section of the <code>composer.json</code>
+<a href="04-schema.html">schema</a>.</p>
+<h2 id="process-timeout"><a class="header" href="#process-timeout">process-timeout</a></h2>
+<p>The timeout in seconds for process executions, defaults to 300 (5mins).
+The duration processes like git clones can run before
+Composer assumes they died out. You may need to make this higher if you have a
+slow connection or huge vendors.</p>
+<p>To disable the process timeout on a custom command under <code>scripts</code>, a static
+helper is available:</p>
+<pre><code class="language-json">{
+    &quot;scripts&quot;: {
+        &quot;test&quot;: [
+            &quot;Composer\\Config::disableProcessTimeout&quot;,
+            &quot;phpunit&quot;
+        ]
+    }
+}
+</code></pre>
+<h2 id="allow-plugins"><a class="header" href="#allow-plugins">allow-plugins</a></h2>
+<p>Defaults to <code>null</code> (allow all plugins implicitly) for backwards compatibility until July 2022.
+At that point the default will become <code>{}</code> and plugins will not load anymore unless allowed.</p>
+<p>As of Composer 2.2.0, the <code>allow-plugins</code> option adds a layer of security
+allowing you to restrict which Composer plugins are able to execute code during
+a Composer run.</p>
+<p>When a new plugin is first activated, which is not yet listed in the config option,
+Composer will print a warning. If you run Composer interactively it will
+prompt you to decide if you want to execute the plugin or not.</p>
+<p>Use this setting to allow only packages you trust to execute code. Set it to
+an object with package name patterns as keys. The values are <strong>true</strong> to allow
+and <strong>false</strong> to disallow while suppressing further warnings and prompts.</p>
+<pre><code class="language-json">{
+    &quot;config&quot;: {
+        &quot;allow-plugins&quot;: {
+            &quot;third-party/required-plugin&quot;: true,
+            &quot;my-organization/*&quot;: true,
+            &quot;unnecessary/plugin&quot;: false
+        }
+    }
+}
+</code></pre>
+<p>You can also set the config option itself to <code>false</code> to disallow all plugins, or <code>true</code> to allow all plugins to run (NOT recommended).</p>
+<h2 id="use-include-path"><a class="header" href="#use-include-path">use-include-path</a></h2>
+<p>Defaults to <code>false</code>. If <code>true</code>, the Composer autoloader will also look for classes
+in the PHP include path.</p>
+<h2 id="preferred-install"><a class="header" href="#preferred-install">preferred-install</a></h2>
+<p>Defaults to <code>dist</code> and can be any of <code>source</code>, <code>dist</code> or <code>auto</code>. This option
+allows you to set the install method Composer will prefer to use. Can
+optionally be an object with package name patterns for keys for more granular install preferences.</p>
+<pre><code class="language-json">{
+    &quot;config&quot;: {
+        &quot;preferred-install&quot;: {
+            &quot;my-organization/stable-package&quot;: &quot;dist&quot;,
+            &quot;my-organization/*&quot;: &quot;source&quot;,
+            &quot;partner-organization/*&quot;: &quot;auto&quot;,
+            &quot;*&quot;: &quot;dist&quot;
+        }
+    }
+}
+</code></pre>
+<ul>
+<li><code>source</code> means Composer will install packages from their <code>source</code> if there
+is one. This is typically a git clone or equivalent checkout of the version
+control system the package uses. This is useful if you want to make a bugfix
+to a project and get a local git clone of the dependency directly.</li>
+<li><code>auto</code> is the legacy behavior where Composer uses <code>source</code> automatically
+for dev versions, and <code>dist</code> otherwise.</li>
+<li><code>dist</code> (the default as of Composer 2.1) means Composer installs from <code>dist</code>,
+where possible. This is typically a zip file download, which is faster than
+cloning the entire repository.</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> Order matters. More specific patterns should be earlier than
+more relaxed patterns. When mixing the string notation with the hash
+configuration in global and package configurations the string notation
+is translated to a <code>*</code> package pattern.</p>
+</blockquote>
+<h2 id="use-parent-dir"><a class="header" href="#use-parent-dir">use-parent-dir</a></h2>
+<p>When running Composer in a directory where there is no composer.json, if there
+is one present in a directory above Composer will by default ask you whether
+you want to use that directory's composer.json instead.</p>
+<p>If you always want to answer yes to this prompt, you can set this config value
+to <code>true</code>. To never be prompted, set it to <code>false</code>. The default is <code>&quot;prompt&quot;</code>.</p>
+<blockquote>
+<p><strong>Note:</strong> This config must be set in your global user-wide config for it
+to work. Use for example <code>php composer.phar config --global use-parent-dir true</code>
+to set it.</p>
+</blockquote>
+<h2 id="store-auths"><a class="header" href="#store-auths">store-auths</a></h2>
+<p>What to do after prompting for authentication, one of: <code>true</code> (always store),
+<code>false</code> (do not store) and <code>&quot;prompt&quot;</code> (ask every time), defaults to <code>&quot;prompt&quot;</code>.</p>
+<h2 id="github-protocols"><a class="header" href="#github-protocols">github-protocols</a></h2>
+<p>Defaults to <code>[&quot;https&quot;, &quot;ssh&quot;, &quot;git&quot;]</code>. A list of protocols to use when cloning
+from github.com, in priority order. By default <code>git</code> is present but only if <a href="#secure-http">secure-http</a>
+is disabled, as the git protocol is not encrypted. If you want your origin remote
+push URLs to be using https and not ssh (<code>git@github.com:...</code>), then set the protocol
+list to be only <code>[&quot;https&quot;]</code> and Composer will stop overwriting the push URL to an ssh
+URL.</p>
+<h2 id="github-oauth"><a class="header" href="#github-oauth">github-oauth</a></h2>
+<p>A list of domain names and oauth keys. For example using <code>{&quot;github.com&quot;: &quot;oauthtoken&quot;}</code> as the value of this option will use <code>oauthtoken</code> to access
+private repositories on github and to circumvent the low IP-based rate limiting
+of their API. Composer may prompt for credentials when needed, but these can also be
+manually set. Read more on how to get an OAuth token for GitHub and cli syntax
+<a href="articles/authentication-for-private-packages.html#github-oauth">here</a>.</p>
+<h2 id="gitlab-domains"><a class="header" href="#gitlab-domains">gitlab-domains</a></h2>
+<p>Defaults to <code>[&quot;gitlab.com&quot;]</code>. A list of domains of GitLab servers.
+This is used if you use the <code>gitlab</code> repository type.</p>
+<h2 id="gitlab-oauth"><a class="header" href="#gitlab-oauth">gitlab-oauth</a></h2>
+<p>A list of domain names and oauth keys. For example using <code>{&quot;gitlab.com&quot;: &quot;oauthtoken&quot;}</code> as the value of this option will use <code>oauthtoken</code> to access
+private repositories on gitlab. Please note: If the package is not hosted at
+gitlab.com the domain names must be also specified with the
+<a href="06-config.html#gitlab-domains"><code>gitlab-domains</code></a> option.
+Further info can also be found <a href="articles/authentication-for-private-packages.html#gitlab-oauth">here</a></p>
+<h2 id="gitlab-token"><a class="header" href="#gitlab-token">gitlab-token</a></h2>
+<p>A list of domain names and private tokens. Private token can be either simple
+string, or array with username and token. For example using <code>{&quot;gitlab.com&quot;: &quot;privatetoken&quot;}</code> as the value of this option will use <code>privatetoken</code> to access
+private repositories on gitlab. Using <code>{&quot;gitlab.com&quot;: {&quot;username&quot;: &quot;gitlabuser&quot;, &quot;token&quot;: &quot;privatetoken&quot;}}</code> will use both username and token for gitlab deploy
+token functionality (https://docs.gitlab.com/ee/user/project/deploy_tokens/)
+Please note: If the package is not hosted at
+gitlab.com the domain names must be also specified with the
+<a href="06-config.html#gitlab-domains"><code>gitlab-domains</code></a> option. The token must have
+<code>api</code> or <code>read_api</code> scope.
+Further info can also be found <a href="articles/authentication-for-private-packages.html#gitlab-token">here</a></p>
+<h2 id="gitlab-protocol"><a class="header" href="#gitlab-protocol">gitlab-protocol</a></h2>
+<p>A protocol to force use of when creating a repository URL for the <code>source</code>
+value of the package metadata. One of <code>git</code> or <code>http</code>. (<code>https</code> is treated
+as a synonym for <code>http</code>.) Helpful when working with projects referencing
+private repositories which will later be cloned in GitLab CI jobs with a
+<a href="https://docs.gitlab.com/ee/ci/variables/predefined_variables.html#predefined-variables-reference">GitLab CI_JOB_TOKEN</a>
+using HTTP basic auth. By default, Composer will generate a git-over-SSH
+URL for private repositories and HTTP(S) only for public.</p>
+<h2 id="disable-tls"><a class="header" href="#disable-tls">disable-tls</a></h2>
+<p>Defaults to <code>false</code>. If set to true all HTTPS URLs will be tried with HTTP
+instead and no network level encryption is performed. Enabling this is a
+security risk and is NOT recommended. The better way is to enable the
+php_openssl extension in php.ini. Enabling this will implicitly disable the
+<code>secure-http</code> option.</p>
+<h2 id="secure-http"><a class="header" href="#secure-http">secure-http</a></h2>
+<p>Defaults to <code>true</code>. If set to true only HTTPS URLs are allowed to be
+downloaded via Composer. If you really absolutely need HTTP access to something
+then you can disable it, but using <a href="https://letsencrypt.org/">Let's Encrypt</a> to
+get a free SSL certificate is generally a better alternative.</p>
+<h2 id="bitbucket-oauth"><a class="header" href="#bitbucket-oauth">bitbucket-oauth</a></h2>
+<p>A list of domain names and consumers. For example using <code>{&quot;bitbucket.org&quot;: {&quot;consumer-key&quot;: &quot;myKey&quot;, &quot;consumer-secret&quot;: &quot;mySecret&quot;}}</code>.
+Read more <a href="articles/authentication-for-private-packages.html#bitbucket-oauth">here</a>.</p>
+<h2 id="cafile"><a class="header" href="#cafile">cafile</a></h2>
+<p>Location of Certificate Authority file on local filesystem. In PHP 5.6+ you
+should rather set this via openssl.cafile in php.ini, although PHP 5.6+ should
+be able to detect your system CA file automatically.</p>
+<h2 id="capath"><a class="header" href="#capath">capath</a></h2>
+<p>If cafile is not specified or if the certificate is not found there, the
+directory pointed to by capath is searched for a suitable certificate.
+capath must be a correctly hashed certificate directory.</p>
+<h2 id="http-basic"><a class="header" href="#http-basic">http-basic</a></h2>
+<p>A list of domain names and username/passwords to authenticate against them. For
+example using <code>{&quot;example.org&quot;: {&quot;username&quot;: &quot;alice&quot;, &quot;password&quot;: &quot;foo&quot;}}</code> as the
+value of this option will let Composer authenticate against example.org.
+More info can be found <a href="articles/authentication-for-private-packages.html#http-basic">here</a>.</p>
+<h2 id="bearer"><a class="header" href="#bearer">bearer</a></h2>
+<p>A list of domain names and tokens to authenticate against them. For example using
+<code>{&quot;example.org&quot;: &quot;foo&quot;}</code> as the value of this option will let Composer authenticate
+against example.org using an <code>Authorization: Bearer foo</code> header.</p>
+<h2 id="platform"><a class="header" href="#platform">platform</a></h2>
+<p>Lets you fake platform packages (PHP and extensions) so that you can emulate a
+production env or define your target platform in the config. Example: <code>{&quot;php&quot;: &quot;7.0.3&quot;, &quot;ext-something&quot;: &quot;4.0.3&quot;}</code>.</p>
+<p>This will make sure that no package requiring more than PHP 7.0.3 can be installed
+regardless of the actual PHP version you run locally. However it also means
+the dependencies are not checked correctly anymore, if you run PHP 5.6 it will
+install fine as it assumes 7.0.3, but then it will fail at runtime. This also means if
+<code>{&quot;php&quot;:&quot;7.4&quot;}</code> is specified; no packages will be used that define <code>7.4.1</code> as minimum.</p>
+<p>Therefore if you use this it is recommended, and safer, to also run the
+<a href="03-cli.html#check-platform-reqs"><code>check-platform-reqs</code></a> command as part of your
+deployment strategy.</p>
+<p>If a dependency requires some extension that you do not have installed locally
+you may ignore it instead by passing <code>--ignore-platform-req=ext-foo</code> to <code>update</code>,
+<code>install</code> or <code>require</code>. In the long run though you should install required
+extensions as if you ignore one now and a new package you add a month later also
+requires it, you may introduce issues in production unknowingly.</p>
+<p>If you have an extension installed locally but <em>not</em> on production, you may want
+to artificially hide it from Composer using <code>{&quot;ext-foo&quot;: false}</code>.</p>
+<h2 id="vendor-dir"><a class="header" href="#vendor-dir">vendor-dir</a></h2>
+<p>Defaults to <code>vendor</code>. You can install dependencies into a different directory if
+you want to. <code>$HOME</code> and <code>~</code> will be replaced by your home directory's path in
+vendor-dir and all <code>*-dir</code> options below.</p>
+<h2 id="bin-dir"><a class="header" href="#bin-dir">bin-dir</a></h2>
+<p>Defaults to <code>vendor/bin</code>. If a project includes binaries, they will be symlinked
+into this directory.</p>
+<h2 id="data-dir"><a class="header" href="#data-dir">data-dir</a></h2>
+<p>Defaults to <code>C:\Users\&lt;user&gt;\AppData\Roaming\Composer</code> on Windows,
+<code>$XDG_DATA_HOME/composer</code> on unix systems that follow the XDG Base Directory
+Specifications, and <code>$COMPOSER_HOME</code> on other unix systems. Right now it is only
+used for storing past composer.phar files to be able to roll back to older
+versions. See also <a href="03-cli.html#composer-home">COMPOSER_HOME</a>.</p>
+<h2 id="cache-dir"><a class="header" href="#cache-dir">cache-dir</a></h2>
+<p>Defaults to <code>C:\Users\&lt;user&gt;\AppData\Local\Composer</code> on Windows,
+<code>/Users/&lt;user&gt;/Library/Caches/composer</code> on macOS, <code>$XDG_CACHE_HOME/composer</code>
+on unix systems that follow the XDG Base Directory Specifications, and
+<code>$COMPOSER_HOME/cache</code> on other unix systems. Stores all the caches used by
+Composer. See also <a href="03-cli.html#composer-home">COMPOSER_HOME</a>.</p>
+<h2 id="cache-files-dir"><a class="header" href="#cache-files-dir">cache-files-dir</a></h2>
+<p>Defaults to <code>$cache-dir/files</code>. Stores the zip archives of packages.</p>
+<h2 id="cache-repo-dir"><a class="header" href="#cache-repo-dir">cache-repo-dir</a></h2>
+<p>Defaults to <code>$cache-dir/repo</code>. Stores repository metadata for the <code>composer</code>
+type and the VCS repos of type <code>svn</code>, <code>fossil</code>, <code>github</code> and <code>bitbucket</code>.</p>
+<h2 id="cache-vcs-dir"><a class="header" href="#cache-vcs-dir">cache-vcs-dir</a></h2>
+<p>Defaults to <code>$cache-dir/vcs</code>. Stores VCS clones for loading VCS repository
+metadata for the <code>git</code>/<code>hg</code> types and to speed up installs.</p>
+<h2 id="cache-files-ttl"><a class="header" href="#cache-files-ttl">cache-files-ttl</a></h2>
+<p>Defaults to <code>15552000</code> (6 months). Composer caches all dist (zip, tar, ...)
+packages that it downloads. Those are purged after six months of being unused by
+default. This option allows you to tweak this duration (in seconds) or disable
+it completely by setting it to 0.</p>
+<h2 id="cache-files-maxsize"><a class="header" href="#cache-files-maxsize">cache-files-maxsize</a></h2>
+<p>Defaults to <code>300MiB</code>. Composer caches all dist (zip, tar, ...) packages that it
+downloads. When the garbage collection is periodically ran, this is the maximum
+size the cache will be able to use. Older (less used) files will be removed
+first until the cache fits.</p>
+<h2 id="cache-read-only"><a class="header" href="#cache-read-only">cache-read-only</a></h2>
+<p>Defaults to <code>false</code>. Whether to use the Composer cache in read-only mode.</p>
+<h2 id="bin-compat"><a class="header" href="#bin-compat">bin-compat</a></h2>
+<p>Defaults to <code>auto</code>. Determines the compatibility of the binaries to be installed.
+If it is <code>auto</code> then Composer only installs .bat proxy files when on Windows or WSL. If
+set to <code>full</code> then both .bat files for Windows and scripts for Unix-based
+operating systems will be installed for each binary. This is mainly useful if you
+run Composer inside a linux VM but still want the <code>.bat</code> proxies available for use
+in the Windows host OS. If set to <code>proxy</code> Composer will only create bash/Unix-style
+proxy files and no .bat files even on Windows/WSL.</p>
+<h2 id="prepend-autoloader"><a class="header" href="#prepend-autoloader">prepend-autoloader</a></h2>
+<p>Defaults to <code>true</code>. If <code>false</code>, the Composer autoloader will not be prepended to
+existing autoloaders. This is sometimes required to fix interoperability issues
+with other autoloaders.</p>
+<h2 id="autoloader-suffix"><a class="header" href="#autoloader-suffix">autoloader-suffix</a></h2>
+<p>Defaults to <code>null</code>. Non-empty string to be used as a suffix for the generated
+Composer autoloader. When null a random one will be generated.</p>
+<h2 id="optimize-autoloader"><a class="header" href="#optimize-autoloader">optimize-autoloader</a></h2>
+<p>Defaults to <code>false</code>. If <code>true</code>, always optimize when dumping the autoloader.</p>
+<h2 id="sort-packages"><a class="header" href="#sort-packages">sort-packages</a></h2>
+<p>Defaults to <code>false</code>. If <code>true</code>, the <code>require</code> command keeps packages sorted
+by name in <code>composer.json</code> when adding a new package.</p>
+<h2 id="classmap-authoritative"><a class="header" href="#classmap-authoritative">classmap-authoritative</a></h2>
+<p>Defaults to <code>false</code>. If <code>true</code>, the Composer autoloader will only load classes
+from the classmap. Implies <code>optimize-autoloader</code>.</p>
+<h2 id="apcu-autoloader"><a class="header" href="#apcu-autoloader">apcu-autoloader</a></h2>
+<p>Defaults to <code>false</code>. If <code>true</code>, the Composer autoloader will check for APCu and
+use it to cache found/not-found classes when the extension is enabled.</p>
+<h2 id="github-domains"><a class="header" href="#github-domains">github-domains</a></h2>
+<p>Defaults to <code>[&quot;github.com&quot;]</code>. A list of domains to use in github mode. This is
+used for GitHub Enterprise setups.</p>
+<h2 id="github-expose-hostname"><a class="header" href="#github-expose-hostname">github-expose-hostname</a></h2>
+<p>Defaults to <code>true</code>. If <code>false</code>, the OAuth tokens created to access the
+github API will have a date instead of the machine hostname.</p>
+<h2 id="use-github-api"><a class="header" href="#use-github-api">use-github-api</a></h2>
+<p>Defaults to <code>true</code>.  Similar to the <code>no-api</code> key on a specific repository,
+setting <code>use-github-api</code> to <code>false</code> will define the global behavior for all
+GitHub repositories to clone the repository as it would with any other git
+repository instead of using the GitHub API. But unlike using the <code>git</code>
+driver directly, Composer will still attempt to use GitHub's zip files.</p>
+<h2 id="notify-on-install"><a class="header" href="#notify-on-install">notify-on-install</a></h2>
+<p>Defaults to <code>true</code>. Composer allows repositories to define a notification URL,
+so that they get notified whenever a package from that repository is installed.
+This option allows you to disable that behavior.</p>
+<h2 id="discard-changes"><a class="header" href="#discard-changes">discard-changes</a></h2>
+<p>Defaults to <code>false</code> and can be any of <code>true</code>, <code>false</code> or <code>&quot;stash&quot;</code>. This option
+allows you to set the default style of handling dirty updates when in
+non-interactive mode. <code>true</code> will always discard changes in vendors, while
+<code>&quot;stash&quot;</code> will try to stash and reapply. Use this for CI servers or deploy
+scripts if you tend to have modified vendors.</p>
+<h2 id="archive-format"><a class="header" href="#archive-format">archive-format</a></h2>
+<p>Defaults to <code>tar</code>. Overrides the default format used by the archive command.</p>
+<h2 id="archive-dir"><a class="header" href="#archive-dir">archive-dir</a></h2>
+<p>Defaults to <code>.</code>. Default destination for archives created by the archive
+command.</p>
+<p>Example:</p>
+<pre><code class="language-json">{
+    &quot;config&quot;: {
+        &quot;archive-dir&quot;: &quot;/home/user/.composer/repo&quot;
+    }
+}
+</code></pre>
+<h2 id="htaccess-protect"><a class="header" href="#htaccess-protect">htaccess-protect</a></h2>
+<p>Defaults to <code>true</code>. If set to <code>false</code>, Composer will not create <code>.htaccess</code> files
+in the Composer home, cache, and data directories.</p>
+<h2 id="lock"><a class="header" href="#lock">lock</a></h2>
+<p>Defaults to <code>true</code>. If set to <code>false</code>, Composer will not create a <code>composer.lock</code>
+file and will ignore it if one is present.</p>
+<h2 id="platform-check"><a class="header" href="#platform-check">platform-check</a></h2>
+<p>Defaults to <code>php-only</code> which only checks the PHP version. Set to <code>true</code> to also
+check the presence of extension. If set to <code>false</code>, Composer will not create and
+require a <code>platform_check.php</code> file as part of the autoloader bootstrap.</p>
+<h2 id="secure-svn-domains"><a class="header" href="#secure-svn-domains">secure-svn-domains</a></h2>
+<p>Defaults to <code>[]</code>. Lists domains which should be trusted/marked as using a secure
+Subversion/SVN transport. By default svn:// protocol is seen as insecure and will
+throw, but you can set this config option to <code>[&quot;example.org&quot;]</code> to allow using svn
+URLs on that hostname. This is a better/safer alternative to disabling <code>secure-http</code>
+altogether.</p>
+<p>← <a href="05-repositories.html">Repositories</a>  |  <a href="07-runtime.html">Runtime</a> →</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../en/05-repositories.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../en/07-runtime.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../en/05-repositories.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../en/07-runtime.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

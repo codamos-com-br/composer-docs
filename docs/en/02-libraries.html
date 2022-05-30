@@ -1,0 +1,313 @@
+<!DOCTYPE HTML>
+<html lang="pt-br" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Libraries - Composer - PT-BR</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">Book</li><li class="chapter-item expanded "><a href="../en/00-intro.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../en/01-basic-usage.html"><strong aria-hidden="true">2.</strong> Basic usage</a></li><li class="chapter-item expanded "><a href="../en/02-libraries.html" class="active"><strong aria-hidden="true">3.</strong> Libraries</a></li><li class="chapter-item expanded "><a href="../en/03-cli.html"><strong aria-hidden="true">4.</strong> CLI</a></li><li class="chapter-item expanded "><a href="../en/04-schema.html"><strong aria-hidden="true">5.</strong> Schema</a></li><li class="chapter-item expanded "><a href="../en/05-repositories.html"><strong aria-hidden="true">6.</strong> Repositories</a></li><li class="chapter-item expanded "><a href="../en/06-config.html"><strong aria-hidden="true">7.</strong> Config</a></li><li class="chapter-item expanded "><a href="../en/07-runtime.html"><strong aria-hidden="true">8.</strong> Runtime</a></li><li class="chapter-item expanded "><a href="../en/08-community.html"><strong aria-hidden="true">9.</strong> Community</a></li><li class="chapter-item expanded affix "><li class="part-title">Articles</li><li class="chapter-item expanded "><a href="../en/articles/aliases.html"><strong aria-hidden="true">10.</strong> Aliases</a></li><li class="chapter-item expanded "><a href="../en/articles/authentication-for-private-packages.html"><strong aria-hidden="true">11.</strong> Authentication for privately hosted packages and repositories</a></li><li class="chapter-item expanded "><a href="../en/articles/autoloader-optimization.html"><strong aria-hidden="true">12.</strong> Autoloader optimization</a></li><li class="chapter-item expanded "><a href="../en/articles/composer-platform-dependencies.html"><strong aria-hidden="true">13.</strong> Composer platform dependencies</a></li><li class="chapter-item expanded "><a href="../en/articles/custom-installers.html"><strong aria-hidden="true">14.</strong> Setting up and using custom installers</a></li><li class="chapter-item expanded "><a href="../en/articles/handling-private-packages.html"><strong aria-hidden="true">15.</strong> Handling private packages</a></li><li class="chapter-item expanded "><a href="../en/articles/plugins.html"><strong aria-hidden="true">16.</strong> Setting up and using plugins</a></li><li class="chapter-item expanded "><a href="../en/articles/repository-priorities.html"><strong aria-hidden="true">17.</strong> Repository priorities</a></li><li class="chapter-item expanded "><a href="../en/articles/resolving-merge-conflicts.html"><strong aria-hidden="true">18.</strong> Resolving merge conflicts</a></li><li class="chapter-item expanded "><a href="../en/articles/scripts.html"><strong aria-hidden="true">19.</strong> Scripts</a></li><li class="chapter-item expanded "><a href="../en/articles/troubleshooting.html"><strong aria-hidden="true">20.</strong> Troubleshooting</a></li><li class="chapter-item expanded "><a href="../en/articles/vendor-binaries.html"><strong aria-hidden="true">21.</strong> Vendor binaries and the vendor/bin directory</a></li><li class="chapter-item expanded "><a href="../en/articles/versions.html"><strong aria-hidden="true">22.</strong> Versions and constraints</a></li><li class="chapter-item expanded affix "><li class="part-title">FAQs</li><li class="chapter-item expanded "><a href="../en/faqs/how-do-i-install-a-package-to-a-custom-path-for-my-framework.html"><strong aria-hidden="true">23.</strong> How do I install a package to a custom path for my framework?</a></li><li class="chapter-item expanded "><a href="../en/faqs/how-to-install-composer-programmatically.html"><strong aria-hidden="true">24.</strong> How do I install Composer programmatically?</a></li><li class="chapter-item expanded "><a href="../en/faqs/how-to-install-untrusted-packages-safely.html"><strong aria-hidden="true">25.</strong> How do I install untrusted packages safely? Is it safe to run Composer as superuser or root?</a></li><li class="chapter-item expanded "><a href="../en/faqs/should-i-commit-the-dependencies-in-my-vendor-directory.html"><strong aria-hidden="true">26.</strong> Should I commit the dependencies in my vendor directory?</a></li><li class="chapter-item expanded "><a href="../en/faqs/which-version-numbering-system-does-composer-itself-use.html"><strong aria-hidden="true">27.</strong> Which version numbering system does Composer itself use?</a></li><li class="chapter-item expanded "><a href="../en/faqs/why-are-unbound-version-constraints-a-bad-idea.html"><strong aria-hidden="true">28.</strong> Why are unbound version constraints a bad idea?</a></li><li class="chapter-item expanded "><a href="../en/faqs/why-are-version-constraints-combining-comparisons-and-wildcards-a-bad-idea.html"><strong aria-hidden="true">29.</strong> Why are version constraints combining comparisons and wildcards a bad idea?</a></li><li class="chapter-item expanded "><a href="../en/faqs/why-cant-composer-load-repositories-recursively.html"><strong aria-hidden="true">30.</strong> Why can't Composer load repositories recursively?</a></li><li class="chapter-item expanded affix "><li class="part-title">API Docs</li><li class="chapter-item expanded "><div><strong aria-hidden="true">31.</strong> API Docs</div></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Composer - PT-BR</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="libraries"><a class="header" href="#libraries">Libraries</a></h1>
+<p>This chapter will tell you how to make your library installable through
+Composer.</p>
+<h2 id="every-project-is-a-package"><a class="header" href="#every-project-is-a-package">Every project is a package</a></h2>
+<p>As soon as you have a <code>composer.json</code> in a directory, that directory is a
+package. When you add a <a href="04-schema.html#require"><code>require</code></a> to a project, you are
+making a package that depends on other packages. The only difference between
+your project and a library is that your project is a package without a name.</p>
+<p>In order to make that package installable you need to give it a name. You do
+this by adding the <a href="04-schema.html#name"><code>name</code></a> property in <code>composer.json</code>:</p>
+<pre><code class="language-json">{
+    &quot;name&quot;: &quot;acme/hello-world&quot;,
+    &quot;require&quot;: {
+        &quot;monolog/monolog&quot;: &quot;1.0.*&quot;
+    }
+}
+</code></pre>
+<p>In this case the project name is <code>acme/hello-world</code>, where <code>acme</code> is the vendor
+name. Supplying a vendor name is mandatory.</p>
+<blockquote>
+<p><strong>Note:</strong> If you don't know what to use as a vendor name, your GitHub
+username is usually a good bet. Package names must be lowercase, and the
+convention is to use dashes for word separation.</p>
+</blockquote>
+<h2 id="library-versioning"><a class="header" href="#library-versioning">Library Versioning</a></h2>
+<p>In the vast majority of cases, you will be maintaining your library using some
+sort of version control system like git, svn, hg or fossil. In these cases,
+Composer infers versions from your VCS, and you <strong>should not</strong> specify a version
+in your <code>composer.json</code> file. (See the <a href="articles/versions.html">Versions article</a>
+to learn about how Composer uses VCS branches and tags to resolve version
+constraints.)</p>
+<p>If you are maintaining packages by hand (i.e., without a VCS), you'll need to
+specify the version explicitly by adding a <code>version</code> value in your <code>composer.json</code>
+file:</p>
+<pre><code class="language-json">{
+    &quot;version&quot;: &quot;1.0.0&quot;
+}
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> When you add a hardcoded version to a VCS, the version will conflict
+with tag names. Composer will not be able to determine the version number.</p>
+</blockquote>
+<h3 id="vcs-versioning"><a class="header" href="#vcs-versioning">VCS Versioning</a></h3>
+<p>Composer uses your VCS's branch and tag features to resolve the version
+constraints you specify in your <a href="04-schema.html#require"><code>require</code></a> field to specific sets of files.
+When determining valid available versions, Composer looks at all of your tags
+and branches and translates their names into an internal list of options that
+it then matches against the version constraint you provided.</p>
+<p>For more on how Composer treats tags and branches and how it resolves package
+version constraints, read the <a href="articles/versions.html">versions</a> article.</p>
+<h2 id="lock-file"><a class="header" href="#lock-file">Lock file</a></h2>
+<p>For your library you may commit the <code>composer.lock</code> file if you want to. This
+can help your team to always test against the same dependency versions.
+However, this lock file will not have any effect on other projects that depend
+on it. It only has an effect on the main project.</p>
+<p>If you do not want to commit the lock file, and you are using git, add it to
+the <code>.gitignore</code>.</p>
+<h2 id="publishing-to-a-vcs"><a class="header" href="#publishing-to-a-vcs">Publishing to a VCS</a></h2>
+<p>Once you have a VCS repository (version control system, e.g. git) containing a
+<code>composer.json</code> file, your library is already composer-installable. In this
+example we will publish the <code>acme/hello-world</code> library on GitHub under
+<code>github.com/username/hello-world</code>.</p>
+<p>Now, to test installing the <code>acme/hello-world</code> package, we create a new
+project locally. We will call it <code>acme/blog</code>. This blog will depend on
+<code>acme/hello-world</code>, which in turn depends on <code>monolog/monolog</code>. We can
+accomplish this by creating a new <code>blog</code> directory somewhere, containing a
+<code>composer.json</code>:</p>
+<pre><code class="language-json">{
+    &quot;name&quot;: &quot;acme/blog&quot;,
+    &quot;require&quot;: {
+        &quot;acme/hello-world&quot;: &quot;dev-master&quot;
+    }
+}
+</code></pre>
+<p>The name is not needed in this case, since we don't want to publish the blog
+as a library. It is added here to clarify which <code>composer.json</code> is being
+described.</p>
+<p>Now we need to tell the blog app where to find the <code>hello-world</code> dependency.
+We do this by adding a package repository specification to the blog's
+<code>composer.json</code>:</p>
+<pre><code class="language-json">{
+    &quot;name&quot;: &quot;acme/blog&quot;,
+    &quot;repositories&quot;: [
+        {
+            &quot;type&quot;: &quot;vcs&quot;,
+            &quot;url&quot;: &quot;https://github.com/username/hello-world&quot;
+        }
+    ],
+    &quot;require&quot;: {
+        &quot;acme/hello-world&quot;: &quot;dev-master&quot;
+    }
+}
+</code></pre>
+<p>For more details on how package repositories work and what other types are
+available, see <a href="05-repositories.html">Repositories</a>.</p>
+<p>That's all. You can now install the dependencies by running Composer's
+<a href="03-cli.html#install"><code>install</code></a> command!</p>
+<p><strong>Recap:</strong> Any git/svn/hg/fossil repository containing a <code>composer.json</code> can be
+added to your project by specifying the package repository and declaring the
+dependency in the <a href="04-schema.html#require"><code>require</code></a> field.</p>
+<h2 id="publishing-to-packagist"><a class="header" href="#publishing-to-packagist">Publishing to packagist</a></h2>
+<p>Alright, so now you can publish packages. But specifying the VCS repository
+every time is cumbersome. You don't want to force all your users to do that.</p>
+<p>The other thing that you may have noticed is that we did not specify a package
+repository for <code>monolog/monolog</code>. How did that work? The answer is Packagist.</p>
+<p><a href="https://packagist.org/">Packagist</a> is the main package repository for
+Composer, and it is enabled by default. Anything that is published on
+Packagist is available automatically through Composer. Since
+<a href="https://packagist.org/packages/monolog/monolog">Monolog is on Packagist</a>, we
+can depend on it without having to specify any additional repositories.</p>
+<p>If we wanted to share <code>hello-world</code> with the world, we would publish it on
+Packagist as well.</p>
+<p>You visit <a href="https://packagist.org">Packagist</a> and hit the &quot;Submit&quot;
+button. This will prompt you to sign up if you haven't already, and then
+allows you to submit the URL to your VCS repository, at which point Packagist
+will start crawling it. Once it is done, your package will be available to
+anyone!</p>
+<p>← <a href="01-basic-usage.html">Basic usage</a> |  <a href="03-cli.html">Command-line interface</a> →</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../en/01-basic-usage.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../en/03-cli.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../en/01-basic-usage.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../en/03-cli.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>

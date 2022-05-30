@@ -1,0 +1,376 @@
+<!DOCTYPE HTML>
+<html lang="pt-br" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Setting up and using custom installers - Composer - PT-BR</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">Book</li><li class="chapter-item expanded "><a href="../../en/00-intro.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../../en/01-basic-usage.html"><strong aria-hidden="true">2.</strong> Basic usage</a></li><li class="chapter-item expanded "><a href="../../en/02-libraries.html"><strong aria-hidden="true">3.</strong> Libraries</a></li><li class="chapter-item expanded "><a href="../../en/03-cli.html"><strong aria-hidden="true">4.</strong> CLI</a></li><li class="chapter-item expanded "><a href="../../en/04-schema.html"><strong aria-hidden="true">5.</strong> Schema</a></li><li class="chapter-item expanded "><a href="../../en/05-repositories.html"><strong aria-hidden="true">6.</strong> Repositories</a></li><li class="chapter-item expanded "><a href="../../en/06-config.html"><strong aria-hidden="true">7.</strong> Config</a></li><li class="chapter-item expanded "><a href="../../en/07-runtime.html"><strong aria-hidden="true">8.</strong> Runtime</a></li><li class="chapter-item expanded "><a href="../../en/08-community.html"><strong aria-hidden="true">9.</strong> Community</a></li><li class="chapter-item expanded affix "><li class="part-title">Articles</li><li class="chapter-item expanded "><a href="../../en/articles/aliases.html"><strong aria-hidden="true">10.</strong> Aliases</a></li><li class="chapter-item expanded "><a href="../../en/articles/authentication-for-private-packages.html"><strong aria-hidden="true">11.</strong> Authentication for privately hosted packages and repositories</a></li><li class="chapter-item expanded "><a href="../../en/articles/autoloader-optimization.html"><strong aria-hidden="true">12.</strong> Autoloader optimization</a></li><li class="chapter-item expanded "><a href="../../en/articles/composer-platform-dependencies.html"><strong aria-hidden="true">13.</strong> Composer platform dependencies</a></li><li class="chapter-item expanded "><a href="../../en/articles/custom-installers.html" class="active"><strong aria-hidden="true">14.</strong> Setting up and using custom installers</a></li><li class="chapter-item expanded "><a href="../../en/articles/handling-private-packages.html"><strong aria-hidden="true">15.</strong> Handling private packages</a></li><li class="chapter-item expanded "><a href="../../en/articles/plugins.html"><strong aria-hidden="true">16.</strong> Setting up and using plugins</a></li><li class="chapter-item expanded "><a href="../../en/articles/repository-priorities.html"><strong aria-hidden="true">17.</strong> Repository priorities</a></li><li class="chapter-item expanded "><a href="../../en/articles/resolving-merge-conflicts.html"><strong aria-hidden="true">18.</strong> Resolving merge conflicts</a></li><li class="chapter-item expanded "><a href="../../en/articles/scripts.html"><strong aria-hidden="true">19.</strong> Scripts</a></li><li class="chapter-item expanded "><a href="../../en/articles/troubleshooting.html"><strong aria-hidden="true">20.</strong> Troubleshooting</a></li><li class="chapter-item expanded "><a href="../../en/articles/vendor-binaries.html"><strong aria-hidden="true">21.</strong> Vendor binaries and the vendor/bin directory</a></li><li class="chapter-item expanded "><a href="../../en/articles/versions.html"><strong aria-hidden="true">22.</strong> Versions and constraints</a></li><li class="chapter-item expanded affix "><li class="part-title">FAQs</li><li class="chapter-item expanded "><a href="../../en/faqs/how-do-i-install-a-package-to-a-custom-path-for-my-framework.html"><strong aria-hidden="true">23.</strong> How do I install a package to a custom path for my framework?</a></li><li class="chapter-item expanded "><a href="../../en/faqs/how-to-install-composer-programmatically.html"><strong aria-hidden="true">24.</strong> How do I install Composer programmatically?</a></li><li class="chapter-item expanded "><a href="../../en/faqs/how-to-install-untrusted-packages-safely.html"><strong aria-hidden="true">25.</strong> How do I install untrusted packages safely? Is it safe to run Composer as superuser or root?</a></li><li class="chapter-item expanded "><a href="../../en/faqs/should-i-commit-the-dependencies-in-my-vendor-directory.html"><strong aria-hidden="true">26.</strong> Should I commit the dependencies in my vendor directory?</a></li><li class="chapter-item expanded "><a href="../../en/faqs/which-version-numbering-system-does-composer-itself-use.html"><strong aria-hidden="true">27.</strong> Which version numbering system does Composer itself use?</a></li><li class="chapter-item expanded "><a href="../../en/faqs/why-are-unbound-version-constraints-a-bad-idea.html"><strong aria-hidden="true">28.</strong> Why are unbound version constraints a bad idea?</a></li><li class="chapter-item expanded "><a href="../../en/faqs/why-are-version-constraints-combining-comparisons-and-wildcards-a-bad-idea.html"><strong aria-hidden="true">29.</strong> Why are version constraints combining comparisons and wildcards a bad idea?</a></li><li class="chapter-item expanded "><a href="../../en/faqs/why-cant-composer-load-repositories-recursively.html"><strong aria-hidden="true">30.</strong> Why can't Composer load repositories recursively?</a></li><li class="chapter-item expanded affix "><li class="part-title">API Docs</li><li class="chapter-item expanded "><div><strong aria-hidden="true">31.</strong> API Docs</div></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Composer - PT-BR</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!--
+    tagline: Modify the way certain types of packages are installed
+-->
+<h1 id="setting-up-and-using-custom-installers"><a class="header" href="#setting-up-and-using-custom-installers">Setting up and using custom installers</a></h1>
+<h2 id="synopsis"><a class="header" href="#synopsis">Synopsis</a></h2>
+<p>At times, it may be necessary for a package to require additional actions during
+installation, such as installing packages outside of the default <code>vendor</code>
+library.</p>
+<p>In these cases you could consider creating a Custom Installer to handle your
+specific logic.</p>
+<h2 id="alternative-to-custom-installers-with-composer-21"><a class="header" href="#alternative-to-custom-installers-with-composer-21">Alternative to custom installers with Composer 2.1+</a></h2>
+<p>As of Composer 2.1, the <code>Composer\InstalledVersions</code> class has a
+<a href="https://getcomposer.org/doc/07-runtime.md#knowing-which-packages-of-a-given-type-are-installed"><code>getInstalledPackagesByType</code></a>
+method which can let you figure out at runtime which plugins/modules/extensions are installed.</p>
+<p>It is highly recommended to use that instead of building new custom
+installers if you are building a new application. This has the advantage of leaving
+all vendor code in the vendor directory, and not requiring custom installer code.</p>
+<h2 id="calling-a-custom-installer"><a class="header" href="#calling-a-custom-installer">Calling a Custom Installer</a></h2>
+<p>Suppose that your project already has a Custom Installer for specific modules
+then invoking that installer is a matter of defining the correct <a href="../04-schema.html#type">type</a> in
+your package file.</p>
+<blockquote>
+<p><em>See the next chapter for an instruction how to create Custom Installers.</em></p>
+</blockquote>
+<p>Every Custom Installer defines which <a href="../04-schema.html#type">type</a> string it will recognize. Once
+recognized it will completely override the default installer and only apply its
+own logic.</p>
+<p>An example use-case would be:</p>
+<blockquote>
+<p>phpDocumentor features Templates that need to be installed outside of the
+default /vendor folder structure. As such they have chosen to adopt the
+<code>phpdocumentor-template</code> <a href="../04-schema.html#type">type</a> and create a plugin providing the Custom
+Installer to send these templates to the correct folder.</p>
+</blockquote>
+<p>An example composer.json of such a template package would be:</p>
+<pre><code class="language-json">{
+    &quot;name&quot;: &quot;phpdocumentor/template-responsive&quot;,
+    &quot;type&quot;: &quot;phpdocumentor-template&quot;,
+    &quot;require&quot;: {
+        &quot;phpdocumentor/template-installer-plugin&quot;: &quot;*&quot;
+    }
+}
+</code></pre>
+<blockquote>
+<p><strong>IMPORTANT</strong>: to make sure that the template installer is present at the
+time the template package is installed, template packages should require
+the plugin package.</p>
+</blockquote>
+<h2 id="creating-an-installer"><a class="header" href="#creating-an-installer">Creating an Installer</a></h2>
+<p>A Custom Installer is defined as a class that implements the
+<a href="https://github.com/composer/composer/blob/main/src/Composer/Installer/InstallerInterface.php"><code>Composer\Installer\InstallerInterface</code></a> and is usually distributed in a
+Composer Plugin.</p>
+<p>A basic Installer Plugin would thus compose of three files:</p>
+<ol>
+<li>the package file: composer.json</li>
+<li>The Plugin class, e.g.: <code>My\Project\Composer\Plugin.php</code>, containing a class that implements <code>Composer\Plugin\PluginInterface</code>.</li>
+<li>The Installer class, e.g.: <code>My\Project\Composer\Installer.php</code>, containing a class that implements <code>Composer\Installer\InstallerInterface</code>.</li>
+</ol>
+<h3 id="composerjson"><a class="header" href="#composerjson">composer.json</a></h3>
+<p>The package file is the same as any other package file but with the following
+requirements:</p>
+<ol>
+<li>the <a href="../04-schema.html#type">type</a> attribute must be <code>composer-plugin</code>.</li>
+<li>the <a href="../04-schema.html#extra">extra</a> attribute must contain an element <code>class</code> defining the
+class name of the plugin (including namespace). If a package contains
+multiple plugins, this can be an array of class names.</li>
+</ol>
+<p>Example:</p>
+<pre><code class="language-json">{
+    &quot;name&quot;: &quot;phpdocumentor/template-installer-plugin&quot;,
+    &quot;type&quot;: &quot;composer-plugin&quot;,
+    &quot;license&quot;: &quot;MIT&quot;,
+    &quot;autoload&quot;: {
+        &quot;psr-0&quot;: {&quot;phpDocumentor\\Composer&quot;: &quot;src/&quot;}
+    },
+    &quot;extra&quot;: {
+        &quot;class&quot;: &quot;phpDocumentor\\Composer\\TemplateInstallerPlugin&quot;
+    },
+    &quot;require&quot;: {
+        &quot;composer-plugin-api&quot;: &quot;^1.0&quot;
+    },
+    &quot;require-dev&quot;: {
+        &quot;composer/composer&quot;: &quot;^1.3&quot;
+    }
+}
+</code></pre>
+<p>The example above has Composer itself in its require-dev, which allows you to use
+the Composer classes in your test suite for example.</p>
+<h3 id="the-plugin-class"><a class="header" href="#the-plugin-class">The Plugin class</a></h3>
+<p>The class defining the Composer plugin must implement the
+<a href="https://github.com/composer/composer/blob/main/src/Composer/Plugin/PluginInterface.php"><code>Composer\Plugin\PluginInterface</code></a>. It can then register the Custom
+Installer in its <code>activate()</code> method.</p>
+<p>The class may be placed in any location and have any name, as long as it is
+autoloadable and matches the <code>extra.class</code> element in the package definition.</p>
+<p>Example:</p>
+<pre><code class="language-php">&lt;?php
+
+namespace phpDocumentor\Composer;
+
+use Composer\Composer;
+use Composer\IO\IOInterface;
+use Composer\Plugin\PluginInterface;
+
+class TemplateInstallerPlugin implements PluginInterface
+{
+    public function activate(Composer $composer, IOInterface $io)
+    {
+        $installer = new TemplateInstaller($io, $composer);
+        $composer-&gt;getInstallationManager()-&gt;addInstaller($installer);
+    }
+}
+</code></pre>
+<h3 id="the-custom-installer-class"><a class="header" href="#the-custom-installer-class">The Custom Installer class</a></h3>
+<p>The class that executes the custom installation should implement the
+<a href="https://github.com/composer/composer/blob/main/src/Composer/Installer/InstallerInterface.php"><code>Composer\Installer\InstallerInterface</code></a> (or extend another installer that
+implements that interface). It defines the <a href="../04-schema.html#type">type</a> string as it will be
+recognized by packages that will use this installer in the <code>supports()</code> method.</p>
+<blockquote>
+<p><strong>NOTE</strong>: <em>choose your <a href="../04-schema.html#type">type</a> name carefully, it is recommended to follow
+the format: <code>vendor-type</code></em>. For example: <code>phpdocumentor-template</code>.</p>
+</blockquote>
+<p>The InstallerInterface class defines the following methods (please see the
+source for the exact signature):</p>
+<ul>
+<li><strong>supports()</strong>, here you test whether the passed <a href="../04-schema.html#type">type</a> matches the name
+that you declared for this installer (see the example).</li>
+<li><strong>isInstalled()</strong>, determines whether a supported package is installed or not.</li>
+<li><strong>install()</strong>, here you can determine the actions that need to be executed
+upon installation.</li>
+<li><strong>update()</strong>, here you define the behavior that is required when Composer is
+invoked with the update argument.</li>
+<li><strong>uninstall()</strong>, here you can determine the actions that need to be executed
+when the package needs to be removed.</li>
+<li><strong>getInstallPath()</strong>, this method should return the location where the
+package is to be installed, <em>relative from the location of composer.json.</em>
+The path <em>must not end with a slash.</em></li>
+</ul>
+<p>Example:</p>
+<pre><code class="language-php">&lt;?php
+
+namespace phpDocumentor\Composer;
+
+use Composer\Package\PackageInterface;
+use Composer\Installer\LibraryInstaller;
+
+class TemplateInstaller extends LibraryInstaller
+{
+    /**
+     * @inheritDoc
+     */
+    public function getInstallPath(PackageInterface $package)
+    {
+        $prefix = substr($package-&gt;getPrettyName(), 0, 23);
+        if ('phpdocumentor/template-' !== $prefix) {
+            throw new \InvalidArgumentException(
+                'Unable to install template, phpdocumentor templates '
+                .'should always start their package name with '
+                .'&quot;phpdocumentor/template-&quot;'
+            );
+        }
+
+        return 'data/templates/'.substr($package-&gt;getPrettyName(), 23);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function supports($packageType)
+    {
+        return 'phpdocumentor-template' === $packageType;
+    }
+}
+</code></pre>
+<p>The example demonstrates that it is possible to extend the
+<a href="https://github.com/composer/composer/blob/main/src/Composer/Installer/LibraryInstaller.php"><code>Composer\Installer\LibraryInstaller</code></a> class to strip a prefix
+(<code>phpdocumentor/template-</code>) and use the remaining part to assemble a completely
+different installation path.</p>
+<blockquote>
+<p><em>Instead of being installed in <code>/vendor</code> any package installed using this
+Installer will be put in the <code>/data/templates/&lt;stripped name&gt;</code> folder.</em></p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../en/articles/composer-platform-dependencies.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../en/articles/handling-private-packages.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../en/articles/composer-platform-dependencies.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../en/articles/handling-private-packages.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>
