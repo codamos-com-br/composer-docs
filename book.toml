@@ -1,0 +1,6 @@
+[book]
+authors = ["Níckolas Da Silva"]
+language = "pt-br"
+multilingual = false
+src = "src"
+title = "Composer - PT-BR"
