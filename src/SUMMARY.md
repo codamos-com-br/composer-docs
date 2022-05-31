@@ -2,14 +2,14 @@
 
 # Book
 
-- [Introduction](./en/00-intro.md)
-- [Basic usage](./en/01-basic-usage.md)
-- [Libraries](./en/02-libraries.md)
-- [CLI](./en/03-cli.md)
-- [Schema](./en/04-schema.md)
-- [Repositories](./en/05-repositories.md)
-- [Config](./en/06-config.md)
-- [Runtime](./en/07-runtime.md)
+- [Introdução](./pt-br/00-introducao.md)
+- [Utilização básica](./pt-br/01-utilizacao-basica.md)
+- [Bibliotecas](./pt-br/02-bibliotecas.md)
+- [Linha de comando (CLI)](./pt-br/03-linha-de-comando.md)
+- [Schema](./pt-br/04-schema.md)
+- [Repositorios](./pt-br/05-repositorios.md)
+- [Configuração](./pt-br/06-configuracao.md)
+- [Ambiente](./pt-br/07-ambiente.md)
 - [Comunidade](./pt-br/08-comunidade.md)
 
 # Articles
