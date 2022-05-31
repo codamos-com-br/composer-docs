@@ -10,7 +10,7 @@
 - [Repositories](./en/05-repositories.md)
 - [Config](./en/06-config.md)
 - [Runtime](./en/07-runtime.md)
-- [Community](./en/08-community.md)
+- [Comunidade](./pt-br/08-comunidade.md)
 
 # Articles
 
