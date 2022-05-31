@@ -34,7 +34,7 @@ sobre como declarar dependências.
 ## Requisitos de Sistema
 
 A versão mais recente de Composer precisa do PHP 7.2.5 para rodar. A versão de
-suporte continuado (2.2.x) ainda oferece suprote para PHP 5.3.2+ caso você
+suporte continuado (2.2.x) ainda oferece suporte para PHP 5.3.2+ caso você
 ainda utilize a versão legada da linguagem PHP. Algumas configurações do PHP
 e flags de compilação também são necessárias, mas ao utilizar o instalador
 você receberá avisos sobre quaisquer incompatibilidades.
