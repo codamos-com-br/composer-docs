@@ -33,7 +33,7 @@ sobre como declarar dependências.
 
 ## Requisitos de Sistema
 
-A versão mais recente de Composer precisa do PHP 7.2.5 para rodar. A versão de
+A versão mais recente de Composer precisa do PHP 7.2.5 para executar. A versão de
 suporte continuado (2.2.x) ainda oferece suporte para PHP 5.3.2+ caso você
 ainda utilize a versão legada da linguagem PHP. Algumas configurações do PHP
 e flags de compilação também são necessárias, mas ao utilizar o instalador
@@ -43,7 +43,7 @@ Para instalar pacotes a partir de código fonte em vez de arquivos zip, você
 vai precisar de git, svn, fossil ou hg dependendo de como é feito o
 gerenciamento de versões.
 
-Composer é multi-plataforma e nós nos esforçamos para fazer com que rode
+Composer é multi-plataforma e nós nos esforçamos para fazer com que execute 
 igualmente bem nas plataformas Windows, Linux e macOS.
 
 ## Instalação - Linux / Unix / macOS
@@ -62,16 +62,16 @@ com uma instalação global disponível para todo seu sistema.
 
 #### Local
 
-Para instalar Composer de forma local, rode o instalador no diretório de seu
+Para instalar Composer de forma local, execute o instalador no diretório de seu
 projeto. Visite a [página de Download](https://getcomposer.org/download/) para
 obter instruções.
 
 O instalador vai verificar algumas configurações do PHP e baixar o arquivo
 `composer.phar` para o seu diretório atual. Este arquivo é o binário de Composer.
-É um PHAR (PHP archive), um formato _archive_ para PHP que pode rodar na linha
+É um PHAR (PHP archive), um formato _archive_ para PHP que pode executar na linha
 de comando, dentre outras coisas.
 
-Agora rode `php composer.phar` para rodar Composer.
+Agora execute `php composer.phar` para executar Composer.
 
 Você pode instalar Composer em um diretório específico usando a opção
 `--install-dir` e também (re)nomeá-lo utilizando a opção `--filename`.
@@ -83,19 +83,19 @@ adicione os seguintes parâmetros:
 php composer-setup.php --install-dir=bin --filename=composer
 ```
 
-Agora rode `php bin/composer` para executar o binário Composer.
+Agora execute `php bin/composer` para executar o binário Composer.
 
 #### Global
 
 Você pode colocar o arquivo Composer PHAR em qualquer lugar que quiser. Se você
 o colocar num diretório incluído em sua variável `PATH`, poderá o acessar de
-forma global. Em sistemas Unix você pode até mesmo torná-lo executável e rodar
+forma global. Em sistemas Unix você pode até mesmo torná-lo executável e executar 
 o comando diretamente sem precisar prefixar com o interpretador `php` na
 linha de comando.
 
-Após rodar o instalador seguindo
+Após executaro instalador seguindo
 [as instruções da página de Download](https://getcomposer.org/download/)
-você pode rodar o seguinte comando para mover composer.phar para um diretório
+você pode executar o seguinte comando para mover composer.phar para um diretório
 que esteja em sua variável path:
 
 ```sh
@@ -107,18 +107,18 @@ de super usuário (root), você pode usar `~/.local/bin` que é disponibilizado 
 padrão em algumas distros Linux.
 
 > **Importante:** Se o comando acima falhar por conta de permissões, você pode
-> precisar rodar o comando novamente com `sudo`.
+> precisar executar o comando novamente com `sudo`.
 
 > **Importante:** Em algumas versões do macOS o diretório `/usr` não existe. Se
 > você receber o erro "/usr/local/bin/composer: No such file or directory" você
-> vai precisar criar o diretório manualmente antes de rodar o comando:
+> vai precisar criar o diretório manualmente antes de executar o comando:
 > `mkdir -p /usr/local/bin`.
 
 > **Importante:** Para obter informações sobre como alterar sua variável PATH,
 > leia o [artigo na Wikipedia](https://en.wikipedia.org/wiki/PATH_(variable))
 > e/ou utilize seu mecanismo de busca favorito.
 
-Agora rode `composer` para executar Composer em vez de `php composer.phar`.
+Agora execute `composer` para executar Composer em vez de `php composer.phar`.
 
 ## Instalação - Windows
 
@@ -126,7 +126,7 @@ Agora rode `composer` para executar Composer em vez de `php composer.phar`.
 
 Esta é a maneira mais fácil de instalar Composer em seu computador.
 
-Baixe e rode [Composer-Setup.exe](https://getcomposer.org/Composer-Setup.exe).
+Baixe e execute [Composer-Setup.exe](https://getcomposer.org/Composer-Setup.exe).
 Isto vai instalar a versão mais recente de Composer e configurar sua variável
 PATH para que você possa executar `composer` a partir de qualquer diretório
 em sua linha de comando.
@@ -137,7 +137,7 @@ em sua linha de comando.
 
 ### Instalação Manual
 
-Vá para algum diretório descrito em sua variável PATH e rode o instalador
+Vá para algum diretório descrito em sua variável PATH e execute o instalador
 seguindo [as instruções da página de Download](https://getcomposer.org/download/)
 para baixar o arquivo `composer.phar`.
 
