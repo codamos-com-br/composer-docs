@@ -1,0 +1,319 @@
+<!DOCTYPE HTML>
+<html lang="pt-br" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Introdução - Composer - PT-BR</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">Book</li><li class="chapter-item expanded "><a href="../pt-br/00-introducao.html" class="active"><strong aria-hidden="true">1.</strong> Introdução</a></li><li class="chapter-item expanded "><a href="../pt-br/01-utilizacao-basica.html"><strong aria-hidden="true">2.</strong> Utilização básica</a></li><li class="chapter-item expanded "><a href="../pt-br/02-bibliotecas.html"><strong aria-hidden="true">3.</strong> Bibliotecas</a></li><li class="chapter-item expanded "><a href="../pt-br/03-linha-de-comando.html"><strong aria-hidden="true">4.</strong> Linha de comando (CLI)</a></li><li class="chapter-item expanded "><a href="../pt-br/04-schema.html"><strong aria-hidden="true">5.</strong> Schema</a></li><li class="chapter-item expanded "><a href="../pt-br/05-repositorios.html"><strong aria-hidden="true">6.</strong> Repositorios</a></li><li class="chapter-item expanded "><a href="../pt-br/06-configuracao.html"><strong aria-hidden="true">7.</strong> Configuração</a></li><li class="chapter-item expanded "><a href="../pt-br/07-ambiente.html"><strong aria-hidden="true">8.</strong> Ambiente</a></li><li class="chapter-item expanded "><a href="../pt-br/08-comunidade.html"><strong aria-hidden="true">9.</strong> Comunidade</a></li><li class="chapter-item expanded affix "><li class="part-title">Articles</li><li class="chapter-item expanded "><a href="../en/articles/aliases.html"><strong aria-hidden="true">10.</strong> Aliases</a></li><li class="chapter-item expanded "><a href="../en/articles/authentication-for-private-packages.html"><strong aria-hidden="true">11.</strong> Authentication for privately hosted packages and repositories</a></li><li class="chapter-item expanded "><a href="../en/articles/autoloader-optimization.html"><strong aria-hidden="true">12.</strong> Autoloader optimization</a></li><li class="chapter-item expanded "><a href="../en/articles/composer-platform-dependencies.html"><strong aria-hidden="true">13.</strong> Composer platform dependencies</a></li><li class="chapter-item expanded "><a href="../en/articles/custom-installers.html"><strong aria-hidden="true">14.</strong> Setting up and using custom installers</a></li><li class="chapter-item expanded "><a href="../en/articles/handling-private-packages.html"><strong aria-hidden="true">15.</strong> Handling private packages</a></li><li class="chapter-item expanded "><a href="../en/articles/plugins.html"><strong aria-hidden="true">16.</strong> Setting up and using plugins</a></li><li class="chapter-item expanded "><a href="../en/articles/repository-priorities.html"><strong aria-hidden="true">17.</strong> Repository priorities</a></li><li class="chapter-item expanded "><a href="../en/articles/resolving-merge-conflicts.html"><strong aria-hidden="true">18.</strong> Resolving merge conflicts</a></li><li class="chapter-item expanded "><a href="../en/articles/scripts.html"><strong aria-hidden="true">19.</strong> Scripts</a></li><li class="chapter-item expanded "><a href="../en/articles/troubleshooting.html"><strong aria-hidden="true">20.</strong> Troubleshooting</a></li><li class="chapter-item expanded "><a href="../en/articles/vendor-binaries.html"><strong aria-hidden="true">21.</strong> Vendor binaries and the vendor/bin directory</a></li><li class="chapter-item expanded "><a href="../en/articles/versions.html"><strong aria-hidden="true">22.</strong> Versions and constraints</a></li><li class="chapter-item expanded affix "><li class="part-title">FAQs</li><li class="chapter-item expanded "><a href="../en/faqs/how-do-i-install-a-package-to-a-custom-path-for-my-framework.html"><strong aria-hidden="true">23.</strong> How do I install a package to a custom path for my framework?</a></li><li class="chapter-item expanded "><a href="../en/faqs/how-to-install-composer-programmatically.html"><strong aria-hidden="true">24.</strong> How do I install Composer programmatically?</a></li><li class="chapter-item expanded "><a href="../en/faqs/how-to-install-untrusted-packages-safely.html"><strong aria-hidden="true">25.</strong> How do I install untrusted packages safely? Is it safe to run Composer as superuser or root?</a></li><li class="chapter-item expanded "><a href="../en/faqs/should-i-commit-the-dependencies-in-my-vendor-directory.html"><strong aria-hidden="true">26.</strong> Should I commit the dependencies in my vendor directory?</a></li><li class="chapter-item expanded "><a href="../en/faqs/which-version-numbering-system-does-composer-itself-use.html"><strong aria-hidden="true">27.</strong> Which version numbering system does Composer itself use?</a></li><li class="chapter-item expanded "><a href="../en/faqs/why-are-unbound-version-constraints-a-bad-idea.html"><strong aria-hidden="true">28.</strong> Why are unbound version constraints a bad idea?</a></li><li class="chapter-item expanded "><a href="../en/faqs/why-are-version-constraints-combining-comparisons-and-wildcards-a-bad-idea.html"><strong aria-hidden="true">29.</strong> Why are version constraints combining comparisons and wildcards a bad idea?</a></li><li class="chapter-item expanded "><a href="../en/faqs/why-cant-composer-load-repositories-recursively.html"><strong aria-hidden="true">30.</strong> Why can't Composer load repositories recursively?</a></li><li class="chapter-item expanded affix "><li class="part-title">API Docs</li><li class="chapter-item expanded "><div><strong aria-hidden="true">31.</strong> API Docs</div></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Composer - PT-BR</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="introdução"><a class="header" href="#introdução">Introdução</a></h1>
+<p>Composer é uma ferramenta para gerenciamento de dependências em PHP. Ela te
+permite declarar de quais bibliotecas seu projeto depende e as gerenciará
+(fará a instalação e atualização) para você.</p>
+<h2 id="gerenciamento-de-dependências"><a class="header" href="#gerenciamento-de-dependências">Gerenciamento de dependências</a></h2>
+<p>Composer <strong>não é</strong> um gerenciador de pacotes no mesmo sentido em que Yum ou
+Apt são. Sim, Composer lida com &quot;pacotes&quot; ou bibliotecas, mas as gerencia
+por projeto e as instala num diretório dentro de seu projeto (por exemplo <code>vendor</code>).
+Por padrão nada é instalado de forma global. Portanto Composer é um gerenciador
+de dependências. Porém Composer oferece um projeto &quot;global&quot; para facilitar a sua
+vida, através do comando <a href="03-linha-de-comando.html#global">global</a>.</p>
+<p>Esta ideia não é novidade e Composer foi fortemente inspirado pelo
+<a href="https://www.npmjs.com/">npm</a> do Node e <a href="https://bundler.io/">bundler</a> do Ruby.</p>
+<p>Vamos supor que:</p>
+<ol>
+<li>Você possua um projeto que depende de várias bibliotecas.</li>
+<li>Algumas destas bibliotecas dependem de outras bibliotecas.</li>
+</ol>
+<p>Composer:</p>
+<ol>
+<li>Te permite declarar de quais bibliotecas você depende.</li>
+<li>Encontra quais versões de quais pacotes podem e precisa ser instaladas, e
+as instala (as baixa para o seu projeto).</li>
+<li>Você pode atualizar todas suas dependências em um único comando.</li>
+</ol>
+<p>Veja o capítulo <a href="01-utilizacao-basica.html">Utilização básica</a> para mais detalhes
+sobre como declarar dependências.</p>
+<h2 id="requisitos-de-sistema"><a class="header" href="#requisitos-de-sistema">Requisitos de Sistema</a></h2>
+<p>A versão mais recente de Composer precisa do PHP 7.2.5 para executar. A versão de
+suporte continuado (2.2.x) ainda oferece suporte para PHP 5.3.2+ caso você
+ainda utilize a versão legada da linguagem PHP. Algumas configurações do PHP
+e flags de compilação também são necessárias, mas ao utilizar o instalador
+você receberá avisos sobre quaisquer incompatibilidades.</p>
+<p>Para instalar pacotes a partir de código fonte em vez de arquivos zip, você
+vai precisar de git, svn, fossil ou hg dependendo de como é feito o
+gerenciamento de versões.</p>
+<p>Composer é multi-plataforma e nós nos esforçamos para fazer com que execute 
+igualmente bem nas plataformas Windows, Linux e macOS.</p>
+<h2 id="instalação---linux--unix--macos"><a class="header" href="#instalação---linux--unix--macos">Instalação - Linux / Unix / macOS</a></h2>
+<h3 id="baixando-o-executável-composer"><a class="header" href="#baixando-o-executável-composer">Baixando o executável Composer</a></h3>
+<p>Composer oferece um instalador bem conveniente que você pode executar diretamente
+da linha de comando. Sinta-se livre para
+<a href="https://getcomposer.org/installer">baixar este arquivo</a>
+ou revisá-lo no <a href="https://github.com/composer/getcomposer.org/blob/main/web/installer">GitHub</a>
+caso queira saber mais detalhes de como ele funciona internamente. O código está
+em PHP puro.</p>
+<p>Há duas formas de instalar Composer. De forma local, dentro de seu projeto, ou
+com uma instalação global disponível para todo seu sistema.</p>
+<h4 id="local"><a class="header" href="#local">Local</a></h4>
+<p>Para instalar Composer de forma local, execute o instalador no diretório de seu
+projeto. Visite a <a href="https://getcomposer.org/download/">página de Download</a> para
+obter instruções.</p>
+<p>O instalador vai verificar algumas configurações do PHP e baixar o arquivo
+<code>composer.phar</code> para o seu diretório atual. Este arquivo é o binário de Composer.
+É um PHAR (PHP archive), um formato <em>archive</em> para PHP que pode executar na linha
+de comando, dentre outras coisas.</p>
+<p>Agora execute <code>php composer.phar</code> para executar Composer.</p>
+<p>Você pode instalar Composer em um diretório específico usando a opção
+<code>--install-dir</code> e também (re)nomeá-lo utilizando a opção <code>--filename</code>.
+Quando ao executar o instalador, ao seguir
+<a href="https://getcomposer.org/download/">as instruções da página de Download</a>,
+adicione os seguintes parâmetros:</p>
+<pre><code class="language-sh">php composer-setup.php --install-dir=bin --filename=composer
+</code></pre>
+<p>Agora execute <code>php bin/composer</code> para executar o binário Composer.</p>
+<h4 id="global"><a class="header" href="#global">Global</a></h4>
+<p>Você pode colocar o arquivo Composer PHAR em qualquer lugar que quiser. Se você
+o colocar num diretório incluído em sua variável <code>PATH</code>, poderá o acessar de
+forma global. Em sistemas Unix você pode até mesmo torná-lo executável e executar 
+o comando diretamente sem precisar prefixar com o interpretador <code>php</code> na
+linha de comando.</p>
+<p>Após executaro instalador seguindo
+<a href="https://getcomposer.org/download/">as instruções da página de Download</a>
+você pode executar o seguinte comando para mover composer.phar para um diretório
+que esteja em sua variável path:</p>
+<pre><code class="language-sh">mv composer.phar /usr/local/bin/composer
+</code></pre>
+<p>Caso queira instalar apenas para o seu usuário e evitar a necessidade de permissões
+de super usuário (root), você pode usar <code>~/.local/bin</code> que é disponibilizado por
+padrão em algumas distros Linux.</p>
+<blockquote>
+<p><strong>Importante:</strong> Se o comando acima falhar por conta de permissões, você pode
+precisar executar o comando novamente com <code>sudo</code>.</p>
+</blockquote>
+<blockquote>
+<p><strong>Importante:</strong> Em algumas versões do macOS o diretório <code>/usr</code> não existe. Se
+você receber o erro &quot;/usr/local/bin/composer: No such file or directory&quot; você
+vai precisar criar o diretório manualmente antes de executar o comando:
+<code>mkdir -p /usr/local/bin</code>.</p>
+</blockquote>
+<blockquote>
+<p><strong>Importante:</strong> Para obter informações sobre como alterar sua variável PATH,
+leia o <a href="https://en.wikipedia.org/wiki/PATH_(variable)">artigo na Wikipedia</a>
+e/ou utilize seu mecanismo de busca favorito.</p>
+</blockquote>
+<p>Agora execute <code>composer</code> para executar Composer em vez de <code>php composer.phar</code>.</p>
+<h2 id="instalação---windows"><a class="header" href="#instalação---windows">Instalação - Windows</a></h2>
+<h3 id="utilizando-o-instalador"><a class="header" href="#utilizando-o-instalador">Utilizando o Instalador</a></h3>
+<p>Esta é a maneira mais fácil de instalar Composer em seu computador.</p>
+<p>Baixe e execute <a href="https://getcomposer.org/Composer-Setup.exe">Composer-Setup.exe</a>.
+Isto vai instalar a versão mais recente de Composer e configurar sua variável
+PATH para que você possa executar <code>composer</code> a partir de qualquer diretório
+em sua linha de comando.</p>
+<blockquote>
+<p><strong>Importante:</strong> Feche seu terminal. Teste a utilização de Composer com um
+terminal novo: isto é importante porque a variável PATH só é carregada
+quando o terminal é inicializado.</p>
+</blockquote>
+<h3 id="instalação-manual"><a class="header" href="#instalação-manual">Instalação Manual</a></h3>
+<p>Vá para algum diretório descrito em sua variável PATH e execute o instalador
+seguindo <a href="https://getcomposer.org/download/">as instruções da página de Download</a>
+para baixar o arquivo <code>composer.phar</code>.</p>
+<p>Crie um arquivo <code>composer.bat</code> ao lado de <code>composer.phar</code>:</p>
+<p>Utilizando cmd.exe:</p>
+<pre><code class="language-sh">C:\bin&gt; echo @php &quot;%~dp0composer.phar&quot; %*&gt;composer.bat
+</code></pre>
+<p>Utilizando PowerShell:</p>
+<pre><code class="language-sh">PS C:\bin&gt; Set-Content composer.bat '@php &quot;%~dp0composer.phar&quot; %*'
+</code></pre>
+<p>Adicione o diretório em sua variável PATH caso ainda não esteja adicionado.
+Para informações sobre como alterar sua variável PATH, veja
+<a href="https://www.computerhope.com/issues/ch000549.htm">este artigo</a> e/ou
+utilize seu mecanismo de busca favorito.</p>
+<p>Feche seu terminal atual. E teste Composer com um novo terminal:</p>
+<pre><code class="language-sh">C:\Users\username&gt;composer -V
+Composer version 2.0.12 2021-04-01 10:14:59
+</code></pre>
+<h2 id="utilizando-composer"><a class="header" href="#utilizando-composer">Utilizando Composer</a></h2>
+<p>Agora que você instalou Composer, você já tem tudo o que precisa para começar
+a usar! Vá para o próximo capítulo para uma pequena amostra de como utilizar Composer.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+                            <a rel="next" href="../pt-br/01-utilizacao-basica.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+                    <a rel="next" href="../pt-br/01-utilizacao-basica.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>
