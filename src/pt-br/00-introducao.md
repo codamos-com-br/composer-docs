@@ -1,16 +1,16 @@
 # Introdução
 
-Composer é uma ferramenta para gerenciamento de dependencias em PHP. Ela te
+Composer é uma ferramenta para gerenciamento de dependências em PHP. Ela te
 permite declarar de quais bibliotecas seu projeto depende e as gerenciará
 (fará a instalação e atualização) para você.
 
-## Gerenciamento de dependencias
+## Gerenciamento de dependências
 
 Composer **não é** um gerenciador de pacotes no mesmo sentido em que Yum ou
 Apt são. Sim, Composer lida com "pacotes" ou bibliotecas, mas as gerencia
 por projeto e as instala num diretório dentro de seu projeto (por exemplo `vendor`).
 Por padrão nada é instalado de forma global. Portanto Composer é um gerenciador
-de dependencias. Porém Composer oferece um projeto "global" para facilitar a sua
+de dependências. Porém Composer oferece um projeto "global" para facilitar a sua
 vida, através do comando [global](03-linha-de-comando.md#global).
 
 Esta ideia não é novidade e Composer foi fortemente inspirado pelo
@@ -29,7 +29,7 @@ as instala (as baixa para o seu projeto).
 3. Você pode atualizar todas suas dependências em um único comando.
 
 Veja o capítulo [Utilização básica](01-utilizacao-basica.md) para mais detalhes
-sobre como declarar dependencias.
+sobre como declarar dependências.
 
 ## Requisitos de Sistema
 
